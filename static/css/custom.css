@@ -1,0 +1,59 @@
+/* 1. FIXED HEADER WITH BLUR EFFECT (GLASSMORPHISM) */
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Semi-transparent dark background */
+    background-color: rgba(25, 25, 25, 0.7) !important; 
+    /* Background blur effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+}
+
+/* 2. FIXED FOOTER WITH BLUR EFFECT */
+.footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba(25, 25, 25, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. MENU HOVER ANIMATION */
+.navigation .navigation-list .navigation-item a {
+    position: relative;
+    transition: all 0.3s ease; /* Smooth transition */
+    display: inline-block;
+}
+
+/* When the mouse passes over it, it lifts slightly and changes color */
+.navigation .navigation-list .navigation-item a:hover {
+    color: #4facfe; /* Light blue (can be changed to your favorite color) */
+    transform: translateY(-2px);
+}
+
+/* 4. ACTIVE PAGE INDICATOR (CLICKED) */
+/* Hugo/Coder usually marks the current page with aria-current="page" or .active class */
+.navigation .navigation-list .navigation-item a[aria-current="page"],
+.navigation .navigation-list .navigation-item a.active {
+    color: #4facfe;
+    font-weight: bold;
+}
+
+/* Creates an elegant underline below the current page link */
+.navigation .navigation-list .navigation-item a[aria-current="page"]::after,
+.navigation .navigation-list .navigation-item a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4facfe;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+}
