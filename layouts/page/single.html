@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="breadcrumbs">
+    <a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}</span>
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</section>
+
+<section class="section section--compact" data-reveal>
+  <div class="article-layout">
+    <div class="article-main glass">
+      <div class="prose">{{ .Content }}</div>
+    </div>
+    {{ partial "toc.html" . }}
+  </div>
+</section>
+{{ end }}

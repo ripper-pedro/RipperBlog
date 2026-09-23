@@ -1,0 +1,70 @@
+{{ define "main" }}
+{{ $posts := where .RegularPages "Draft" false }}
+{{ $portugueseOnly := slice }}
+{{ if eq site.Language.Lang "en" }}
+  {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
+  {{ with index $ptSites 0 }}
+    {{ with .GetPage "/blog" }}
+      {{ range .RegularPages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $portugueseOnly = $portugueseOnly | append . }}{{ end }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $terms := site.Taxonomies.blog_classifications.ByCount.Reverse }}
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>Blog</span></div>
+  <h1>{{ .Title }}</h1>
+  {{ $postCount := add (len $posts) (len $portugueseOnly) }}
+  <div class="page-hero__summary-row">{{ with .Description }}<p>{{ . }}</p>{{ end }}<div class="page-hero__stats"><span data-list-count data-singular-en="post" data-plural-en="posts" data-singular-pt="postagem" data-plural-pt="postagens">{{ $postCount }} {{ if eq $postCount 1 }}{{ if eq site.Language.Lang "en" }}post{{ else }}postagem{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}posts{{ else }}postagens{{ end }}{{ end }}</span></div></div>
+</section>
+<section class="section section--compact content-listing" data-content-listing="blog" data-reveal>
+  <nav class="content-listing__views" aria-label="{{ if eq site.Language.Lang "en" }}Blog views{{ else }}Visualizações do blog{{ end }}">
+    <button type="button" class="button button--ghost" data-view-button="classifications">{{ if eq site.Language.Lang "en" }}By classification{{ else }}Por classificação{{ end }}</button>
+    <button type="button" class="button button--ghost" data-view-button="recent">{{ if eq site.Language.Lang "en" }}All{{ else }}Todos{{ end }}</button>
+    <button type="button" class="button button--ghost content-listing__filter-toggle" data-filter-toggle aria-label="{{ if eq site.Language.Lang "en" }}Filter tags{{ else }}Filtrar tags{{ end }}" aria-expanded="false" aria-controls="blog-filter-options"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.2 7.1v5.2l-3.6 1.8v-7z"/></svg></button>
+  </nav>
+  <div class="content-listing__filter-panel" id="blog-filter-options" data-filter-panel hidden><fieldset><legend>Tags</legend><div class="content-listing__filter-options" data-filter-options></div></fieldset></div>
+  <div class="content-listing__groups" data-classification-view>
+    <div class="classification-grid">
+      {{ $groupCount := 0 }}
+      {{ range $terms }}
+        {{ $groupPages := where .Page.Pages "Draft" false }}
+        {{ if gt (len $groupPages) 0 }}
+          {{ $groupCount = add $groupCount 1 }}
+          {{ partial "classification-card.html" (dict "page" .Page "count" (len $groupPages) "kind" "post") }}
+        {{ end }}
+      {{ end }}
+      {{ if eq site.Language.Lang "en" }}
+        {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
+        {{ with index $ptSites 0 }}
+          {{ range .Taxonomies.blog_classifications.ByCount.Reverse }}
+            {{ $onlyCount := 0 }}
+            {{ range .Page.Pages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $onlyCount = add $onlyCount 1 }}{{ end }}{{ end }}
+            {{ $englishCount := 0 }}
+            {{ $termName := lower .Page.Title }}
+            {{ range $posts }}{{ range .Params.blog_classifications }}{{ if eq (lower .) $termName }}{{ $englishCount = add $englishCount 1 }}{{ end }}{{ end }}{{ end }}
+            {{ if and (gt $onlyCount 0) (eq $englishCount 0) }}{{ $groupCount = add $groupCount 1 }}{{ partial "classification-card.html" (dict "page" .Page "count" $onlyCount "kind" "post" "portugueseOnly" true) }}{{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ if and (eq (len $posts) 0) (eq (len $portugueseOnly) 0) }}
+      <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No posts yet{{ else }}Ainda não há postagens{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New posts will appear here.{{ else }}Novas postagens aparecerão aqui.{{ end }}</p></div>
+    {{ else if eq $groupCount 0 }}
+      {{ if eq (len $posts) 0 }}{{ else }}<div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No classifications yet{{ else }}Ainda não há classificações{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Choose “All” to browse every post.{{ else }}Escolha “Todos” para ver todas as postagens.{{ end }}</p></div>{{ end }}
+    {{ end }}
+  </div>
+  <div class="content-listing__recent" data-recent-view hidden>
+    {{ with .Content }}<div class="section-intro prose">{{ . }}</div>{{ end }}
+    {{ $paginator := .Paginate $posts.ByDate.Reverse }}
+    {{ if or $paginator.Pages $portugueseOnly }}
+      <div class="post-grid" data-filter-grid>{{ range $paginator.Pages }}{{ partial "post-card.html" . }}{{ end }}</div>
+      {{ if $portugueseOnly }}<div class="language-only-section" data-portuguese-only-view><div class="post-grid">{{ range $portugueseOnly }}{{ partial "portuguese-only-post-card.html" . }}{{ end }}</div></div>{{ end }}
+      {{ partial "pagination.html" $paginator }}
+    {{ else }}
+      <div class="empty-state" data-recent-empty><strong>{{ if eq site.Language.Lang "en" }}No posts yet{{ else }}Ainda não há postagens{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New posts will appear here.{{ else }}Novas postagens aparecerão aqui.{{ end }}</p></div>
+    {{ end }}
+    <div class="empty-state" data-filter-empty hidden><strong>{{ if eq site.Language.Lang "en" }}No posts found for these tags{{ else }}Nenhuma postagem encontrada para estas tags{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Try another selection.{{ else }}Tente outra seleção.{{ end }}</p></div>
+    <template data-all-list-items>{{ range $posts }}{{ partial "post-card.html" . }}{{ end }}{{ range $portugueseOnly }}{{ partial "portuguese-only-post-card.html" . }}{{ end }}</template>
+  </div>
+</section>
+{{ end }}

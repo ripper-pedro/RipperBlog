@@ -1,0 +1,29 @@
+{{- $pages := where site.RegularPages "Section" "in" (slice "blog" "projects") -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" -}}
+  {{- with index $ptSites 0 -}}
+    {{- $ptSite := . -}}
+    {{- range slice "blog" "projects" -}}
+      {{- with $ptSite.GetPage (printf "/%s" .) -}}
+        {{- range .RegularPages -}}
+          {{- if and (not .Draft) (not .IsTranslated) -}}{{- $pages = $pages | append . -}}{{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+[
+{{- range $index, $page := $pages -}}
+  {{- if $index }},{{ end -}}
+  {{- dict
+    "title" $page.Title
+    "url" $page.RelPermalink
+    "description" ($page.Description | default ($page.Summary | plainify))
+    "content" ($page.Plain | truncate 600)
+    "tags" ($page.Params.tags | default slice)
+    "stack" ($page.Params.stack | default slice)
+    "date" ($page.Date.Format "2006-01-02")
+    "languageOnly" (and (eq site.Language.Lang "en") (eq $page.Language.Lang "pt-br"))
+    | jsonify -}}
+{{- end -}}
+]

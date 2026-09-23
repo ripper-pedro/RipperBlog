@@ -1,0 +1,24 @@
+{{- /*
+  Article table-of-contents sidebar.
+
+  Renders only when BOTH conditions hold:
+    1. `.TableOfContents` is non-empty — i.e. the page actually has H2/H3
+       headings (Hugo populates this from rendered `.Content`).
+    2. Front matter does NOT set `toc: false` — explicit opt-out per page.
+
+  The heading text is intentionally kept short because the
+  `<aside class="toc">` already places the heading inside a
+  table-of-contents context, so a longer heading would be redundant.
+
+  No CSS / JS dependency on the inner markup — selectors target `.toc`,
+  `.toc__inner`, `.eyebrow`, and `h2` generically.
+*/ -}}
+{{ if .TableOfContents }}{{ if ne .Params.toc false }}
+<aside class="toc">
+  <div class="toc__inner">
+    <span class="eyebrow">{{ if eq site.Language.Lang "en" }}In this post{{ else }}Nesta postagem{{ end }}</span>
+    <h2>{{ if eq site.Language.Lang "en" }}On this page{{ else }}Nesta página{{ end }}</h2>
+    {{ .TableOfContents }}
+  </div>
+</aside>
+{{ end }}{{ end }}

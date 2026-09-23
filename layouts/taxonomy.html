@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ $isProjects := eq .Data.Plural "project_classifications" }}
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if $isProjects }}{{ if eq site.Language.Lang "en" }}Project classifications{{ else }}Classificações de projetos{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}Blog classifications{{ else }}Classificações do blog{{ end }}{{ end }}</span></div>
+  <h1>{{ if $isProjects }}{{ if eq site.Language.Lang "en" }}Project classifications{{ else }}Classificações de projetos{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}Blog classifications{{ else }}Classificações do blog{{ end }}{{ end }}</h1>
+</section>
+<section class="section section--compact" data-reveal><div class="classification-grid">
+  {{ range .Data.Terms.ByCount.Reverse }}
+    {{ $pages := where .Page.Pages "Draft" false }}
+    {{ if gt (len $pages) 0 }}{{ partial "classification-card.html" (dict "page" .Page "count" (len $pages) "kind" (cond $isProjects "project" "post")) }}{{ end }}
+  {{ end }}
+</div></section>
+{{ end }}

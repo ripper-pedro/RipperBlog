@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="not-found">
+  <svg class="not-found__code" aria-hidden="true" viewBox="0 0 800 500" preserveAspectRatio="none"><text x="0" y="300" dominant-baseline="middle" textLength="800" lengthAdjust="spacingAndGlyphs">404</text></svg>
+
+  <div class="not-found__content glass">
+    <span class="eyebrow">{{ if eq site.Language.Lang "en" }}Page not found:{{ else }}Página não encontrada:{{ end }}</span>
+    <code class="not-found__path" id="not-found-path" aria-live="polite">/</code>
+    <h1>{{ if eq site.Language.Lang "en" }}Nothing to see here… Move along!{{ else }}Nada para ver aqui… Circulando!{{ end }}</h1>
+    <p>{{ if eq site.Language.Lang "en" }}The page may have moved, may not exist, or the link may be incorrect. Try these other options:{{ else }}A página pode não existir, ter mudado de endereço ou o link pode estar incorreto. Tente essas outras opções:{{ end }}</p>
+    <div class="not-found__cta">
+      <a class="button button--primary" href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Go home{{ else }}Ir para o início{{ end }}</a>
+      <button class="button button--ghost" type="button" data-search-open>{{ if eq site.Language.Lang "en" }}Search{{ else }}Pesquisar{{ end }}</button>
+    </div>
+  </div>
+</section>
+
+<script defer>
+  // Echo the path the visitor tried to reach — helps confirm it's really our 404.
+  (function () {
+    var el = document.getElementById('not-found-path');
+    if (!el) return;
+    var p = window.location.pathname || '/';
+    if (p.length > 80) p = p.slice(0, 77) + '…';
+    el.textContent = p;
+  })();
+</script>
+{{ end }}

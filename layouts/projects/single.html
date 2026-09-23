@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article class="article fade-up">
+  <header class="article-header">
+    <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><a href="{{ "projects/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+    {{ with .Params.stack }}<div class="content-card__tags project-single__stacks">{{ range . }}
+      {{ $label := lower . }}{{ $icon := "" }}
+      {{ if or (eq $label "html") (eq $label "html5") }}{{ $icon = "html5" }}
+      {{ else if or (eq $label "css") (eq $label "css3") }}{{ $icon = "css3" }}
+      {{ else if or (eq $label "javascript") (eq $label "js") }}{{ $icon = "javascript" }}
+      {{ else if eq $label "pytorch" }}{{ $icon = "pytorch" }}
+      {{ else if eq $label "python" }}{{ $icon = "python" }}
+      {{ else if or (eq $label "raspberry pi") (eq $label "raspberrypi") }}{{ $icon = "raspberrypi" }}
+      {{ else if eq $label "react" }}{{ $icon = "react" }}
+      {{ else if eq $label "hugo" }}{{ $icon = "hugo" }}
+      {{ else if eq $label "markdown" }}{{ $icon = "markdown-mark" }}{{ end }}
+      <span class="content-card__tag-chip content-card__stack-item">{{ if $icon }}<img src="{{ partial "technology-icon-url.html" $icon | strings.TrimSpace }}" alt="" aria-hidden="true" loading="lazy">{{ end }}{{ . }}</span>
+    {{ end }}</div>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
+    <div class="project-card__links project-single__links">
+      {{ if eq .TranslationKey "personal-website" }}<button class="button button--primary" type="button" data-own-site-demo>Demo ↗</button>{{ else }}{{ with .Params.project_url }}<a class="button button--primary" href="{{ . }}" target="_blank" rel="noopener noreferrer">Demo ↗</a>{{ end }}{{ end }}
+      {{ with .Params.repository_url }}<a class="button button--ghost" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ if eq site.Language.Lang "en" }}Source code{{ else }}Código-fonte{{ end }} ↗</a>{{ end }}
+    </div>
+  </header>
+  <div class="article-layout article-layout--full"><div class="article-main article-main--plain"><div class="prose">{{ .Content }}</div>
+  </div></div>
+  <footer class="article-return"><a class="button button--ghost" href="{{ "projects/" | relLangURL }}">← {{ if eq site.Language.Lang "en" }}Back to projects{{ else }}Voltar para os projetos{{ end }}</a></footer>
+</article>
+{{ end }}

@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ $projects := where .RegularPages "Draft" false }}
+{{ $portugueseOnly := slice }}
+{{ if eq site.Language.Lang "en" }}
+  {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
+  {{ with index $ptSites 0 }}
+    {{ with .GetPage "/projects" }}
+      {{ range .RegularPages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $portugueseOnly = $portugueseOnly | append . }}{{ end }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $terms := site.Taxonomies.project_classifications.ByCount.Reverse }}
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</span></div>
+  <h1>{{ .Title }}</h1>
+  {{ $projectCount := add (len $projects) (len $portugueseOnly) }}
+  <div class="page-hero__summary-row">{{ with .Description }}<p>{{ . }}</p>{{ end }}<div class="page-hero__stats"><span data-list-count data-singular-en="project" data-plural-en="projects" data-singular-pt="projeto" data-plural-pt="projetos">{{ $projectCount }} {{ if eq $projectCount 1 }}{{ if eq site.Language.Lang "en" }}project{{ else }}projeto{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}projects{{ else }}projetos{{ end }}{{ end }}</span></div></div>
+</section>
+<section class="section section--compact content-listing" data-content-listing="projects" data-reveal>
+  <nav class="content-listing__views" aria-label="{{ if eq site.Language.Lang "en" }}Project views{{ else }}Visualizações dos projetos{{ end }}">
+    <button type="button" class="button button--ghost" data-view-button="classifications">{{ if eq site.Language.Lang "en" }}By classification{{ else }}Por classificação{{ end }}</button>
+    <button type="button" class="button button--ghost" data-view-button="recent">{{ if eq site.Language.Lang "en" }}All{{ else }}Todos{{ end }}</button>
+    <button type="button" class="button button--ghost content-listing__filter-toggle" data-filter-toggle aria-label="{{ if eq site.Language.Lang "en" }}Filter stacks{{ else }}Filtrar stacks{{ end }}" aria-expanded="false" aria-controls="projects-filter-options"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.2 7.1v5.2l-3.6 1.8v-7z"/></svg></button>
+  </nav>
+  <div class="content-listing__filter-panel" id="projects-filter-options" data-filter-panel hidden><fieldset><legend>Stacks</legend><div class="content-listing__filter-options" data-filter-options></div></fieldset></div>
+  <div class="content-listing__groups" data-classification-view>
+    <div class="classification-grid">
+      {{ $groupCount := 0 }}
+      {{ range $terms }}
+        {{ $groupPages := where .Page.Pages "Draft" false }}
+        {{ if gt (len $groupPages) 0 }}
+          {{ $groupCount = add $groupCount 1 }}
+          {{ partial "classification-card.html" (dict "page" .Page "count" (len $groupPages) "kind" "project") }}
+        {{ end }}
+      {{ end }}
+      {{ if eq site.Language.Lang "en" }}
+        {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
+        {{ with index $ptSites 0 }}
+          {{ range .Taxonomies.project_classifications.ByCount.Reverse }}
+            {{ $onlyCount := 0 }}
+            {{ range .Page.Pages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $onlyCount = add $onlyCount 1 }}{{ end }}{{ end }}
+            {{ $englishCount := 0 }}
+            {{ $termName := lower .Page.Title }}
+            {{ range $projects }}{{ range .Params.project_classifications }}{{ if eq (lower .) $termName }}{{ $englishCount = add $englishCount 1 }}{{ end }}{{ end }}{{ end }}
+            {{ if and (gt $onlyCount 0) (eq $englishCount 0) }}{{ $groupCount = add $groupCount 1 }}{{ partial "classification-card.html" (dict "page" .Page "count" $onlyCount "kind" "project" "portugueseOnly" true) }}{{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ if and (eq (len $projects) 0) (eq (len $portugueseOnly) 0) }}
+      <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No projects yet{{ else }}Ainda não há projetos{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New projects will appear here.{{ else }}Novos projetos aparecerão aqui.{{ end }}</p></div>
+    {{ else if eq $groupCount 0 }}
+      {{ if eq (len $projects) 0 }}{{ else }}<div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No classifications yet{{ else }}Ainda não há classificações{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Choose “All” to browse every project.{{ else }}Escolha “Todos” para ver todos os projetos.{{ end }}</p></div>{{ end }}
+    {{ end }}
+  </div>
+  <div class="content-listing__recent" data-recent-view hidden>
+    {{ if or $projects $portugueseOnly }}<div class="explore-grid projects-grid" data-filter-grid>{{ range $projects.ByDate.Reverse }}{{ partial "project-card.html" . }}{{ end }}</div>
+    {{ if $portugueseOnly }}<div class="language-only-section" data-portuguese-only-view><div class="explore-grid projects-grid">{{ range $portugueseOnly }}{{ partial "portuguese-only-project-card.html" . }}{{ end }}</div></div>{{ end }}
+    {{ else }}<div class="empty-state" data-recent-empty><strong>{{ if eq site.Language.Lang "en" }}No projects yet{{ else }}Ainda não há projetos{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New projects will appear here.{{ else }}Novos projetos aparecerão aqui.{{ end }}</p></div>{{ end }}
+    <div class="empty-state" data-filter-empty hidden><strong>{{ if eq site.Language.Lang "en" }}No projects found for these stacks{{ else }}Nenhum projeto encontrado para estas stacks{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Try another selection.{{ else }}Tente outra seleção.{{ end }}</p></div>
+    <template data-all-list-items>{{ range $projects.ByDate.Reverse }}{{ partial "project-card.html" . }}{{ end }}{{ range $portugueseOnly }}{{ partial "portuguese-only-project-card.html" . }}{{ end }}</template>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,144 @@
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="icon-button header-home" href="{{ site.Home.RelPermalink }}" aria-label="{{ if eq .Site.Language.Lang "en" }}Home{{ else }}Início{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Home{{ else }}Início{{ end }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5.5 9v11h13V9M9 20v-6h6v6"/></svg>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Site.Language.Lang "en" }}Main navigation{{ else }}Navegação principal{{ end }}">
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}"{{ if $.IsMenuCurrent .Menu . }} class="is-active" aria-current="page"{{ end }}>{{ if eq .Identifier "about" }}{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}{{ else if eq .Identifier "projects" }}{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}{{ else if eq .Identifier "blog" }}Blog{{ else if eq .Identifier "contact" }}{{ if eq site.Language.Lang "en" }}Contact{{ else }}Contato{{ end }}{{ else }}{{ .Name }}{{ end }}</a>
+      {{ end }}
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-search-open aria-label="{{ if eq .Site.Language.Lang "en" }}Search{{ else }}Pesquisar{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Search{{ else }}Pesquisar{{ end }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+      </button>
+
+      <!-- Botão e Menu de Tradução Nativo -->
+      <div class="translate-container" style="display: inline-flex; position: relative; align-items: center;">
+        
+        <button class="icon-button" type="button" id="translate-btn" aria-label="{{ if eq .Site.Language.Lang "en" }}Change language{{ else }}Mudar idioma{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Change language{{ else }}Mudar idioma{{ end }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m5 8 6 6"></path>
+            <path d="m4 14 6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="m22 22-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+          </svg>
+        </button>
+        
+        <!-- Dropdown com os links das traduções -->
+        <div id="lang_dropdown" class="lang_dropdown">
+          {{ if .IsTranslated }}
+            {{ range .AllTranslations }}
+              <a href="{{ .RelPermalink }}">
+                {{ if eq .Language.Lang "pt-br" }}Português (Brasil){{ else if eq .Language.Lang "pt" }}Português (Brasil){{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}
+              </a>
+            {{ end }}
+          {{ else if .IsHome }}
+            {{ range hugo.Sites }}
+              {{ if ne .Language.Lang $.Site.Language.Lang }}
+                <a href="{{ .Home.RelPermalink }}">{{ if eq .Language.Lang "pt-br" }}Português (Brasil){{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}</a>
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            <div class="lang-unavailable" data-translation-notice role="status" aria-live="polite" hidden>
+              <span class="lang-unavailable__icon" aria-hidden="true">!</span>
+              <span><strong>Translation unavailable</strong><br>This page is only available in Portuguese.</span>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <button class="icon-button" type="button" data-theme-toggle aria-label="{{ if eq .Site.Language.Lang "en" }}Toggle theme{{ else }}Alternar tema{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Toggle theme{{ else }}Alternar tema{{ end }}">
+        <svg class="theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5 8.5 8.5 0 1 0 20.5 14.4Z"/></svg>
+        <svg class="theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span><span class="sr-only">{{ if eq .Site.Language.Lang "en" }}Open menu{{ else }}Abrir menu{{ end }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Estilos Nativos do Dropdown -->
+<style>
+  .lang_dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    z-index: var(--z-floating, 50);
+    display: none;
+    /* Puxa diretamente a cor de fundo e borda do seu tokens.css */
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm, 12px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    min-width: 170px;
+    overflow: hidden;
+  }
+  
+  .lang_dropdown a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--ink-2);
+    font-size: 0.9rem;
+    text-align: left;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .lang_dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  
+  .lang_dropdown a:hover {
+    background: var(--bg-2);
+    color: var(--ink-1);
+  }
+
+  .lang_dropdown button:hover { background: var(--bg-2); color: var(--ink-1); }
+  .lang-unavailable { display: flex; align-items: flex-start; gap: 10px; width: 260px; margin: 8px; padding: 12px; border: 1px solid var(--line-strong); border-left: 3px solid var(--ink-1); border-radius: var(--radius-sm, 12px); background: var(--bg-2); color: var(--ink-2); font-size: 0.82rem; line-height: 1.45; }
+  .lang-unavailable[hidden] { display: none; }
+  .lang-unavailable strong { display: inline-block; margin-bottom: 3px; color: var(--ink-1); font-size: 0.86rem; }
+  .lang-unavailable__icon { display: grid; flex: 0 0 20px; width: 20px; height: 20px; place-items: center; border: 1px solid var(--ink-2); border-radius: 50%; color: var(--ink-1); font-weight: 700; }
+
+  /* Ajuste de sombra para o modo escuro */
+  html[data-theme="dark"] .lang_dropdown {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  }
+</style>
+
+<!-- Script Limpo Apenas para Funcionalidade -->
+<script type="text/javascript">
+  document.getElementById('translate-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    var langDiv = document.getElementById('lang_dropdown');
+    if (langDiv.style.display === 'none' || langDiv.style.display === '') {
+      langDiv.style.display = 'block';
+      var notice = langDiv.querySelector('[data-translation-notice]');
+      if (notice) notice.hidden = false;
+    } else {
+      langDiv.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function(event) {
+    var isClickInside = document.querySelector('.translate-container').contains(event.target);
+    if (!isClickInside) {
+      document.getElementById('lang_dropdown').style.display = 'none';
+    }
+  });
+</script>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $month := int (.Date.Format "1") }}
+{{ $monthsEn := slice "january" "february" "march" "april" "may" "june" "july" "august" "september" "october" "november" "december" }}
+{{ $monthsPt := slice "janeiro" "fevereiro" "março" "abril" "maio" "junho" "julho" "agosto" "setembro" "outubro" "novembro" "dezembro" }}
+<article class="article fade-up">
+  <header class="article-header">
+    <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><a href="{{ "blog/" | relLangURL }}">Blog</a><span>/</span><span>{{ .Title }}</span></div>
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ if eq site.Language.Lang "en" }}{{ index $monthsEn (sub $month 1) }} {{ .Date.Format "2, 2006" }}{{ else }}{{ .Date.Format "2" }} de {{ index $monthsPt (sub $month 1) }}, {{ .Date.Format "2006" }}{{ end }}</time>
+      <span>{{ if eq site.Language.Lang "en" }}{{ .ReadingTime }} min read{{ else }}{{ .ReadingTime }} min de leitura{{ end }}</span>
+    </div>
+    {{ with .Params.tags }}<div class="content-card__tags article-tags">{{ range . }}<span class="content-card__tag-chip"><span>#</span><span>{{ . }}</span></span>{{ end }}</div>{{ end }}
+    <h1>{{ with .Params.title_html }}{{ . | safeHTML }}{{ else }}{{ .Title }}{{ end }}</h1>
+    {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
+  </header>
+  <div class="article-layout article-layout--full">
+    <div class="article-main article-main--plain">
+      {{ with .Params.cover }}{{ $cover := . }}{{ with $.Resources.GetMatch (printf "%s" .) }}{{ $cover = .RelPermalink }}{{ else }}{{ $cover = . | relURL }}{{ end }}<figure class="article-cover"><img src="{{ $cover }}" alt="{{ $.Params.cover_alt | default $.Title }}" loading="lazy" decoding="async"></figure>{{ end }}
+      <div class="prose">{{ .Content }}</div>
+    </div>
+  </div>
+  <footer class="article-return"><a class="button button--ghost" href="{{ "blog/" | relLangURL }}">← {{ if eq site.Language.Lang "en" }}Back to the blog{{ else }}Voltar para o blog{{ end }}</a></footer>
+</article>
+{{ end }}

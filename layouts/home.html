@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero__inner">
+    <h1 class="hero__title fade-up">{{ if eq site.Language.Lang "en" }}Hello, you.{{ else }}Olá, você.{{ end }}</h1>
+    <p class="hero__tagline fade-up">{{ if eq site.Language.Lang "en" }}{{ site.Params.intro_en }}{{ else }}{{ site.Params.intro }}{{ end }}</p>
+    <div class="hero__cta fade-up">
+      <a class="button button--primary" href="{{ "about/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }} <span>→</span></a>
+      <a class="button button--ghost" href="{{ "contact/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}Contact{{ else }}Contato{{ end }}</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#explore" aria-label="{{ if eq site.Language.Lang "en" }}Scroll to see more{{ else }}Role para ver mais{{ end }}" title="{{ if eq site.Language.Lang "en" }}Scroll to see more{{ else }}Role para ver mais{{ end }}"><span></span></a>
+</section>
+
+<section class="section section--compact" id="explore" data-reveal>
+  <header class="section-head section-head--centered">
+    <div class="section-rule section-rule--left" aria-hidden="true"></div>
+    <h2>{{ if eq site.Language.Lang "en" }}Take a look!{{ else }}Dá uma olhada!{{ end }}</h2>
+    <div class="section-rule"></div>
+  </header>
+  <div class="explore-grid">
+    <a class="explore-panel glass" href="{{ "projects/" | relLangURL }}"><h3>{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</h3><p>{{ if eq site.Language.Lang "en" }}Some things I've developed, or tried...{{ else }}Algumas coisas que eu desenvolvi, ou tentei...{{ end }}</p><span class="read-link">{{ if eq site.Language.Lang "en" }}View projects{{ else }}Ver projetos{{ end }} →</span></a>
+    <a class="explore-panel glass" href="{{ "blog/" | relLangURL }}"><h3>Blog</h3><p>{{ if eq site.Language.Lang "en" }}The written version of my inner thoughts.{{ else }}A versão escrita do meu monólogo interior.{{ end }}</p><span class="read-link">{{ if eq site.Language.Lang "en" }}Read blog{{ else }}Ler o blog{{ end }} →</span></a>
+  </div>
+</section>
+{{ end }}
