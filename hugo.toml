@@ -1,6 +1,6 @@
 baseURL = "https://ripper-pedro.github.io/RipperBlog/"
 title = "Pedro Ripper"
-theme = "hugo-coder"
+theme = "lumenveil"
 locale = "en"
 defaultContentLanguage = "pt-br"
 enableEmoji = true

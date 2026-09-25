@@ -1,249 +1,370 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <title>Series · johndoe</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="John Doe">
-<meta name="description" content="John Doe&#39;s personal website">
-<meta name="keywords" content="blog,developer,personal">
-
-
-
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Series">
-	<meta name="twitter:description" content="John Doe&#39;s personal website">
-
-<meta property="og:url" content="http://localhost:1313/series/">
-	<meta property="og:site_name" content="johndoe">
-	<meta property="og:title" content="Series">
-	<meta property="og:description" content="John Doe&#39;s personal website">
-	<meta property="og:locale" content="en">
-	<meta property="og:type" content="website">
-
-
-
-
-<link rel="canonical" href="http://localhost:1313/series/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.css" media="screen">
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+<!doctype html>
+<html lang="pt-br">
+<head><script src="/RipperBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=RipperBlog/livereload" data-no-instant defer></script>
   
 
 
 
- 
 
 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<script>
+try {
+  const t = localStorage.getItem('lumenveil-theme');
+  const valid = (t === 'light' || t === 'dark');
+  const system = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  const theme = valid ? t : system;
+  document.documentElement.dataset.theme = theme;
+  
+  
+  const btn = document.querySelector('[data-theme-toggle]');
+  if (btn) {
+    const label = theme === 'light' ? '切换深色模式' : '切换浅色模式';
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+  }
+} catch (e) {}
+</script>
+<title>Series · Pedro Ripper</title>
+<meta name="description" content="Site pessoal de Pedro Ripper">
+<meta name="author" content="Pedro Ripper">
+<link rel="canonical" href="http://localhost:1313/RipperBlog/series/">
+<link rel="icon" href="/RipperBlog/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/RipperBlog/css/main.min.3656fac66c47d0ddd46ecb351ab8f00c282d4bc3e7697ca5e7b80a1bfc8a2cd0.css" integrity="sha256-Nlb6xmxH0N3Ubss1GrjwDCgtS8PnaXyl57gKG/yKLNA=">
 
+<link rel="alternate" type="application/rss+xml" title="Pedro Ripper" href="/RipperBlog/series/index.xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Series · Pedro Ripper">
+<meta property="og:description" content="Site pessoal de Pedro Ripper">
+<meta property="og:url" content="http://localhost:1313/RipperBlog/series/">
+<meta property="og:site_name" content="Pedro Ripper"><meta property="og:image" content="http://localhost:1313/RipperBlog/og.svg">
+<meta name="twitter:image" content="http://localhost:1313/RipperBlog/og.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Series · Pedro Ripper">
+<meta name="twitter:description" content="Site pessoal de Pedro Ripper">
+<meta name="twitter:url" content="http://localhost:1313/RipperBlog/series/">
+<script type="application/ld+json">
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+{"@context":"https://schema.org","@type":"WebSite","name":"Pedro Ripper","url":"http://localhost:1313/RipperBlog/","description":"Site pessoal de Pedro Ripper","potentialAction":{"@type":"SearchAction","target":"http:\/\/localhost:1313\/RipperBlog\/?q={search_term_string}","query-input":"required name=search_term_string"}}
 
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link rel="alternate" type="application/rss+xml" href="/series/index.xml" title="johndoe" />
-
-
-
-
-
-
-
+</script>
 
 </head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+<body>
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora__grid"></div>
+    <div class="aurora__blob aurora__blob--violet"></div>
+    <div class="aurora__blob aurora__blob--cyan"></div>
+    <div class="aurora__blob aurora__blob--pink"></div>
+    <div class="aurora__noise"></div>
+  </div>
+  <div class="site-shell">
+    <header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="brand brand--text" href="/RipperBlog/" aria-label="Pedro Ripper 首页">
+      <span class="brand__text">Pedro Ripper&#39;s Blog<span>.</span></span>
     </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="http://localhost:1313/">
-      johndoe
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/contact/">Contact me</a>
-            </li>
-          
-        
-        
-          
-          
-          
-            
-              
-                <li class="navigation-item menu-separator">
-                  <span>|</span>
-                </li>
-                
-              
-              <li class="navigation-item">
-                <a href="/pt-br/series/">🇧🇷</a>
-              </li>
-            
-          
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+    <nav class="main-nav" id="main-nav" aria-label="主导航">
       
-  <section class="container list">
-  <header>
-    <h1 class="title">
-      <a class="title-link" href="http://localhost:1313/series/">Series</a>
-    </h1>
-  </header>
-  
-  <ul>
+        <a href="about/">Sobre</a>
+      
+        <a href="posts/">Blog</a>
+      
+        <a href="projects/">Projetos</a>
+      
+        <a href="contact/">Contato</a>
+      
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-search-open aria-label="搜索" title="搜索">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="切换主题" title="切换主题">
+        <svg class="theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5 8.5 8.5 0 1 0 20.5 14.4Z"/></svg>
+        <svg class="theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+      </button>
+      
+        <a class="icon-button" href="/RipperBlog/index.xml" aria-label="订阅 RSS" title="订阅 RSS">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4a15 15 0 0 1 15 15M5 10a9 9 0 0 1 9 9M6 18.5h.01"/></svg>
+        </a>
+      
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span><span class="sr-only">打开菜单</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main id="main-content">
+      
+<section class="page-hero">
+  <div class="breadcrumbs"><a href="/RipperBlog/">首页</a><span>/</span><span>Series</span></div>
+  <span class="eyebrow">Browse Topics</span>
+  <h1>Series</h1>
+  <p>从主题出发，找到你感兴趣的内容。</p>
+</section>
+<section class="section section--compact" data-reveal>
+  <div class="term-grid">
     
-    <li>
-      <span class="date">July 13, 2023</span>
-      <a class="title" href="/series/theme-demo/">Theme Demo</a>
-    </li>
+      <div class="empty-state"><strong>暂无主题</strong><p>为文章添加分类或标签后会显示在这里。</p></div>
     
-  </ul>
-  
-
-
-
-
-
-
+  </div>
 </section>
 
-
+    </main>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand brand--footer" href="/RipperBlog/"><span class="brand__mark">L</span><span class="brand__text">Pedro Ripper<span>.</span></span></a>
+      <p></p>
     </div>
-
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-      2019 -
-    
-    2026
-     John Doe 
-    ·
-    
-    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
-  </section>
+    <div class="footer-links">
+      
+      
+      
+      <a href="/RipperBlog/index.xml">RSS</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 – 2026 Pedro Ripper</span>
+    <span>由 Hugo 驱动 · <a href="https://github.com/Hansen1018/hugo-theme-lumenveil" target="_blank" rel="noopener noreferrer">Theme Lumenveil designed by Hansen</a></span>
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">Licensed under CC BY-NC-ND 4.0 DEED</a>
+  </div>
 </footer>
 
-  </main>
+<button class="back-to-top" type="button" data-back-to-top aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
-  
 
-  
-  
-  <script src="/js/coder.js"></script>
-  
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"><span class="scroll-progress__bar"></span></div>
 
+  </div>
+  <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
+    <div class="search-dialog__head">
+      <div>
+        <span class="eyebrow">Search</span>
+        <h2 id="search-title">搜索文章</h2>
+      </div>
+      <button class="icon-button" type="button" data-search-close aria-label="关闭搜索">×</button>
+    </div>
+    <label class="search-field">
+      <span class="sr-only">搜索关键词</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+      <input id="search-input" type="search" placeholder="输入标题、摘要或标签" autocomplete="off">
+      <kbd>ESC</kbd>
+    </label>
+    <div class="search-results" id="search-results" aria-live="polite">
+      <p class="search-empty">输入关键词开始搜索。</p>
+    </div>
+  </dialog>
   
+  <script src="/RipperBlog/js/main.min.98985b5365133cae8103887c7487ecf3d60605c992051addfa7a2557ce6c267b.js" integrity="sha256-mJhbU2UTPK6BA4h8dIfs89YGBcmSBRrd&#43;nolV85sJns=" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
+<script type="module">
+import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
 
-  
 
-  
 
-  
 
-  
 
-  
+const pswpPadding = () => window.innerWidth < 700
+  ? { top: 20, right: 20, bottom: 20, left: 20 }
+  : { top: 180, right: 180, bottom: 180, left: 180 };
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
+
+
+
+
+const getViewportSize = () => ({
+  x: document.documentElement.clientWidth,
+  y: document.documentElement.clientHeight
+});
+
+document.querySelectorAll('.pswp-gallery').forEach(g=>{
+  new PhotoSwipeLightbox({
+    gallery:g,children:'a.pswp-item',
+    pswpModule:()=>import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+    bgOpacity:.80, padding:pswpPadding(),showHideAnimationType:'fade',
+    getViewportSizeFn: getViewportSize
+  }).init();
+});
+document.querySelectorAll('.article-main').forEach(a=>{
+  const inline=a.querySelectorAll('a.pswp-inline');
+  if(!inline.length)return;
+  new PhotoSwipeLightbox({
+    gallery:a,children:'a.pswp-inline',
+    pswpModule:()=>import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+    bgOpacity:.80, padding:pswpPadding(),showHideAnimationType:'fade',
+    getViewportSizeFn: getViewportSize
+  }).init();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+function pairGallery(g) {
+  const items = Array.from(g.querySelectorAll('.pswp-item'));
+  if (!items.length) return;
+  const W = g.clientWidth;
+  if (!W) return;
   
+  
+  
+  
+  
+  
+  
+  if (W < 700) return;
+  const cs = getComputedStyle(g);
+  const gap = parseFloat(cs.columnGap || cs.gap) || 14;
+  
+  
+  
+  
+  
+  
+  items.forEach(it => {
+    it.style.flex = '';
+    it.style.maxWidth = '';
+    it.style.height = '';
+    it.style.overflow = '';
+    const img = it.querySelector('img');
+    if (img) {
+      img.style.width = '';
+      img.style.height = '';
+      img.style.objectFit = '';
+      img.style.objectPosition = '';
+    }
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  const ratioOf = (it) => {
+    const img = it.querySelector('img');
+    if (img && img.naturalWidth > 0 && img.naturalHeight > 0) {
+      return img.naturalWidth / img.naturalHeight;
+    }
+    return parseFloat(it.dataset.pswpRatio) || 1;
+  };
+  for (let i = 0; i < items.length; i += 2) {
+    const a = items[i], b = items[i + 1];
+    if (b) {
+      const rA = ratioOf(a);
+      const rB = ratioOf(b);
+      const sum = rA + rB;
+      const avail = W - gap;
+      const wA = (rA / sum) * avail;
+      const wB = (rB / sum) * avail;
+      a.style.flex = '0 0 ' + wA + 'px';
+      b.style.flex = '0 0 ' + wB + 'px';
+      
+      
+    } else {
+      
+      
+      
+      a.style.flex = '0 0 ' + W + 'px';
+      a.style.maxWidth = '100%';
+    }
+  }
+  
+  
+  items.forEach(it => {
+    const img = it.querySelector('img');
+    if (img && !img.complete) {
+      img.addEventListener('load', () => pairGallery(g), { once: true });
+      img.addEventListener('error', () => pairGallery(g), { once: true });
+    }
+  });
+}
+
+function runPairing() {
+  document.querySelectorAll('.pswp-gallery[data-pswp-layout="justified"]').forEach(pairGallery);
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runPairing);
+} else {
+  runPairing();
+}
+window.addEventListener('load', runPairing);
+
+
+
+
+
+
+
+
+
+let _lastIsMobile = window.innerWidth < 700;
+let _pairResizeTimer;
+window.addEventListener('resize', () => {
+  const isMobile = window.innerWidth < 700;
+  if (isMobile && _lastIsMobile) return;
+  _lastIsMobile = isMobile;
+  clearTimeout(_pairResizeTimer);
+  document.querySelectorAll('.pswp-gallery[data-pswp-layout="justified"] > .pswp-item').forEach(el => {
+    el.style.flex = '';
+    el.style.maxWidth = '';
+  });
+  _pairResizeTimer = setTimeout(runPairing, 150);
+});
+</script>
+
 </body>
-
 </html>
