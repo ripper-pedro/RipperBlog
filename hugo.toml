@@ -1,107 +1,91 @@
-baseURL = "https://ripper-pedro.github.io/RipperBlog/"
-title = "Pedro Ripper"
-theme = "lumenveil"
-locale = "en"
-defaultContentLanguage = "pt-br"
-enableEmoji = true
+baseURL = 'https://ripper-pedro.github.io/RipperBlog/'
+title = 'RipperBlog'
+theme = 'lumenveil'
+
+# Required output formats for search + taxonomy pages
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']
+  term = ['HTML', 'RSS']
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'index'
+  isPlainText = true
+  notAlternative = true
 
 [pagination]
-pagerSize = 6
-
-[markup.highlight]
-noClasses = false
-
-[markup.goldmark.renderer]
-unsafe = true
-
-[params]
-author = "Pedro Ripper"
-description = "Pedro's personal website"
-keywords = "blog, developer, maker, portfolio"
-info = ["Engenheiro", "Maker", "Desenvolvedor"]
-avatarURL = "images/avatar.jpg"
-dateFormat = "January 2, 2006"
-since = 2026
-rtl = false
-colorScheme = "auto"
-hideColorSchemeToggle = false
-maxSeeAlsoItems = 5
-customCSS = ["css/custom.css"]
-customSCSS = []
-customJS = []
+  pagerSize = 6
 
 [taxonomies]
-category = "categories"
-series = "series"
-tag = "tags"
-author = "authors"
+  category = "categories"
+  tag = "tags"
+  series = "series"
+  author = "authors"
 
-# --- SOCIAL NETWORKS ---
-[[params.social]]
-name = "Github"
-icon = "fa-brands fa-github fa-2x"
-weight = 1
-url = "https://github.com/ripper-pedro/"
+[markup]
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  [markup.goldmark.renderer]
+    unsafe = true
 
-[[params.social]]
-name = "LinkedIn"
-icon = "fa-brands fa-linkedin fa-2x"
-weight = 2
-url = "https://www.linkedin.com/in/seu-linkedin/"
+[permalinks]
+  posts = '/posts/:slug/'
 
-# --- MENU AND LANGUAGE: ENGLISH ---
-[languages.en]
-label = ":uk:"
+[imaging]
+  quality = 85
 
-[[languages.en.menu.main]]
-name = "About"
-weight = 1
-url = "about/"
+[params]
+  description = "Ripper's personal blog."
+  author = 'Ripper'
+  initial = 'R'
+  avatar = '/images/avatar.png'
+  role = "Master's student"
+  tagline = 'A luminous reading-first experience.'
+  location = 'from Rio de Janeiro'
+  status = 'Currently writing'
+  email = 'you@example.com'
+  github = 'https://github.com/Hansen1018'
+  twitter = 'https://twitter.com/Hansen1018'
+  since = 2002
+  copyright = 'CC BY-NC-ND 4.0 DEED'
+  copyright_url = 'https://creativecommons.org/licenses/by-nc-nd/4.0/'
+  mainSections = ['posts']
+  highlight = 'hljs'
+  math = true
 
-[[languages.en.menu.main]]
-name = "Blog"
-weight = 2
-url = "posts/"
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 20
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 25
+  [[menus.main]]
+    name = 'Categories'
+    pageRef = '/categories'
+    weight = 30
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 40
 
-[[languages.en.menu.main]]
-name = "Projects"
-weight = 3
-url = "projects/"
-
-[[languages.en.menu.main]]
-name = "Contact"
-weight = 4
-url = "contact/"
-
-# --- MENU AND LANGUAGE: PORTUGUESE ---
-[languages.pt-br]
-label = ":brazil:"
-title = "Pedro Ripper"
-
-[languages.pt-br.params]
-author = "Pedro Ripper"
-info = "Engenheiro e Maker"
-description = "Site pessoal de Pedro Ripper"
-
-[[languages.pt-br.menu.main]]
-name = "Sobre"
-weight = 1
-url = "about/"
-
-[[languages.pt-br.menu.main]]
-name = "Blog"
-weight = 2
-url = "posts/"
-
-[[languages.pt-br.menu.main]]
-name = "Projetos"
-weight = 3
-url = "projects/"
-
-[[languages.pt-br.menu.main]]
-name = "Contato"
-weight = 4
-url = "contact/"
-
-[caches.images]
-dir = ':cacheDir/images'
+[languages]
+  [languages.pt-br]
+    languageName = 'Português'
+    weight = 1
+  [languages.en]
+    languageName = 'English'
+    weight = 2

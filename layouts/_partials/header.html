@@ -1,0 +1,116 @@
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="brand brand--text" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} {{ if eq .Site.Language.Lang "en" }}Home{{ else }}Início{{ end }}">
+      <span class="brand__text">{{ site.Params.brand | default (printf "%s's Blog" site.Params.author) | default site.Title }}<span>.</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Site.Language.Lang "en" }}Main navigation{{ else }}Navegação principal{{ end }}">
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}"{{ if $.IsMenuCurrent .Menu . }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-search-open aria-label="{{ if eq .Site.Language.Lang "en" }}Search{{ else }}Pesquisar{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Search{{ else }}Pesquisar{{ end }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+      </button>
+
+      <!-- Botão e Menu de Tradução Nativo -->
+      <div class="translate-container" style="display: inline-flex; position: relative; align-items: center;">
+        
+        <button class="icon-button" type="button" id="translate-btn" aria-label="{{ if eq .Site.Language.Lang "en" }}Change language{{ else }}Mudar idioma{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Change language{{ else }}Mudar idioma{{ end }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m5 8 6 6"></path>
+            <path d="m4 14 6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="m22 22-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+          </svg>
+        </button>
+        
+        <!-- Dropdown com os links das traduções -->
+        <div id="lang_dropdown" class="lang_dropdown">
+          {{ if .IsTranslated }}
+            {{ range .AllTranslations }}
+              <a href="{{ .RelPermalink }}">
+                {{ if eq .Language.Lang "pt-br" }}Português{{ else if eq .Language.Lang "pt" }}Português{{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}
+              </a>
+            {{ end }}
+          {{ else }}
+            {{ range site.Languages }}
+              <a href="/{{ .Lang }}/">
+                {{ if eq .Lang "pt-br" }}Português{{ else if eq .Lang "pt" }}Português{{ else if eq .Lang "en" }}English{{ else }}{{ .LanguageName }}{{ end }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+
+      <button class="icon-button" type="button" data-theme-toggle aria-label="{{ if eq .Site.Language.Lang "en" }}Toggle theme{{ else }}Alternar tema{{ end }}" title="{{ if eq .Site.Language.Lang "en" }}Toggle theme{{ else }}Alternar tema{{ end }}">
+        <svg class="theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5 8.5 8.5 0 1 0 20.5 14.4Z"/></svg>
+        <svg class="theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span><span class="sr-only">{{ if eq .Site.Language.Lang "en" }}Open menu{{ else }}Abrir menu{{ end }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Estilos Nativos do Dropdown -->
+<style>
+  .lang_dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    z-index: var(--z-floating, 50);
+    display: none;
+    /* Puxa diretamente a cor de fundo e borda do seu tokens.css */
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm, 12px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    overflow: hidden;
+  }
+  
+  .lang_dropdown a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--ink-2);
+    font-size: 0.9rem;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  
+  .lang_dropdown a:hover {
+    background: var(--bg-2);
+    color: var(--ink-1);
+  }
+
+  /* Ajuste de sombra para o modo escuro */
+  html[data-theme="dark"] .lang_dropdown {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  }
+</style>
+
+<!-- Script Limpo Apenas para Funcionalidade -->
+<script type="text/javascript">
+  document.getElementById('translate-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    var langDiv = document.getElementById('lang_dropdown');
+    if (langDiv.style.display === 'none' || langDiv.style.display === '') {
+      langDiv.style.display = 'block';
+    } else {
+      langDiv.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function(event) {
+    var isClickInside = document.querySelector('.translate-container').contains(event.target);
+    if (!isClickInside) {
+      document.getElementById('lang_dropdown').style.display = 'none';
+    }
+  });
+</script>
