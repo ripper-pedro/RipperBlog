@@ -1,4 +1,6 @@
 .about-page { width: min(calc(100% - 48px), var(--content)); min-height: 48vh; margin: auto; padding: 170px 0 90px; text-align: center; }
+.about-page__avatar { margin: 0 auto 24px; }
+.about-page__facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 18px; margin: -4px 0 18px; color: var(--ink-2); font-size: 14px; }
 .about-page > .eyebrow { color: var(--accent-2); }
 .about-page h1 { margin: 14px 0 28px; font-size: clamp(48px, 8vw, 88px); line-height: 1; letter-spacing: -.055em; }
 .about-page__intro { max-width: 66ch; margin: 0 auto; color: var(--ink-2); font-size: 16px; line-height: 1.8; }

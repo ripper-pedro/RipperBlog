@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-br">
-<head>
+<head><script src="/RipperBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=RipperBlog/livereload" data-no-instant defer></script>
   
 
 
@@ -31,23 +31,23 @@ try {
   }
 } catch (e) {}
 </script>
-<title>Sobre · RipperBlog</title>
+<title>Sobre mim · RipperBlog</title>
 <meta name="description" content="Currículo de Ripper.">
 <meta name="author" content="Ripper">
-<link rel="canonical" href="https://ripper-pedro.github.io/RipperBlog/about/">
+<link rel="canonical" href="http://localhost:1313/RipperBlog/about/">
 <link rel="icon" href="/RipperBlog/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/RipperBlog/css/main.min.css" integrity="">
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sobre · RipperBlog">
+<meta property="og:title" content="Sobre mim · RipperBlog">
 <meta property="og:description" content="Currículo de Ripper.">
-<meta property="og:url" content="https://ripper-pedro.github.io/RipperBlog/about/">
-<meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="https://ripper-pedro.github.io/RipperBlog/og.svg">
-<meta name="twitter:image" content="https://ripper-pedro.github.io/RipperBlog/og.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sobre · RipperBlog">
+<meta property="og:url" content="http://localhost:1313/RipperBlog/about/">
+<meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="http://localhost:1313/RipperBlog/og.svg">
+<meta name="twitter:image" content="http://localhost:1313/RipperBlog/og.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sobre mim · RipperBlog">
 <meta name="twitter:description" content="Currículo de Ripper.">
-<meta name="twitter:url" content="https://ripper-pedro.github.io/RipperBlog/about/">
+<meta name="twitter:url" content="http://localhost:1313/RipperBlog/about/">
 
 <meta property="article:published_time" content="0001-01-01T00:00:00Z">
 
@@ -58,7 +58,7 @@ try {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="document.querySelectorAll('.prose').forEach(function(t){if(t.closest('[data-katex-rendered]'))return;t.setAttribute('data-katex-rendered','1');if(window.renderMathInElement)renderMathInElement(t,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});});"></script><script type="application/ld+json">
 
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Sobre","description":"Currículo de Ripper.","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Ripper"},"mainEntityOfPage":"https://ripper-pedro.github.io/RipperBlog/about/"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Sobre mim","description":"Currículo de Ripper.","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Ripper"},"mainEntityOfPage":"http://localhost:1313/RipperBlog/about/"}
 
 </script>
 
@@ -75,9 +75,7 @@ try {
   <div class="site-shell">
     <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand brand--text" href="/RipperBlog/" aria-label="RipperBlog Início">
-      <span class="brand__text">Ripper&#39;s Blog<span>.</span></span>
-    </a>
+    <span aria-hidden="true"></span>
     <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
       
         <a href="/RipperBlog/">Início</a>
@@ -200,8 +198,16 @@ try {
       
 <article class="about-page">
   <div class="breadcrumbs"><a href="/RipperBlog/">Início</a><span>/</span><span>Sobre</span></div>
-  <h1>Sobre</h1>
-  <div class="about-page__intro prose"><p>Esta página será meu currículo. Vou acrescentar aqui minha formação, experiência, habilidades e outras informações profissionais.</p>
+  <div class="hero__avatar about-page__avatar fade-up">
+    <div class="hero__avatar-ring"></div>
+    <div class="hero__avatar-core">R</div>
+  </div>
+  <div class="about-page__facts">
+    <span>📍 Do Rio de Janeiro</span>
+    <span>🎂 Desde 2002</span>
+  </div>
+  <h1>Sobre mim</h1>
+  <div class="about-page__intro prose"><p>Esta página vai ser meu currículo.</p>
 </div>
 </article>
 
@@ -240,23 +246,21 @@ try {
   <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <span class="eyebrow">Pesquisa</span>
-        <h2 id="search-title">Pesquisar artigos</h2>
+        <h2 id="search-title">Pesquisar por publicações</h2>
       </div>
       <button class="icon-button" type="button" data-search-close aria-label="Fechar pesquisa">×</button>
     </div>
     <label class="search-field">
       <span class="sr-only">Termos de pesquisa</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-      <input id="search-input" type="search" placeholder="Pesquise títulos, resumos ou tags" autocomplete="off">
+      <input id="search-input" type="search" placeholder="Digite alguma coisa..." autocomplete="off">
       <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
-      <p class="search-empty">Digite palavras-chave para começar a pesquisar.</p>
     </div>
   </dialog>
   
-  <script src="/RipperBlog/js/main.min.d9bf401b5b5d4e31a6075fccf8d9b0335579df33811dfd49f92ef96dec9bdc37.js" integrity="sha256-2b9AG1tdTjGmB1/M&#43;NmwM1V53zOBHf1J&#43;S75beyb3Dc=" defer></script>
+  <script src="/RipperBlog/js/main.min.cf631c7db046ff17db52960651fbb375e9c7c44e85fa63cc15eb6a6c0666d5f9.js" integrity="sha256-z2McfbBG/xfbUpYGUfuzdenHxE6F&#43;mPMFetqbAZm1fk=" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
 <script type="module">
 import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';

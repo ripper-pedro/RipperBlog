@@ -1,6 +1,4 @@
 ---
-title: 'Projetos'
-description: 'Projetos que desenvolvi.'
+title: 'Meus projetos'
+description: 'Algumas coisas que eu desenvolvi, ou tentei...'
 ---
-
-Aqui vou reunir projetos que já realizei, com informações sobre cada ideia, processo e resultado.

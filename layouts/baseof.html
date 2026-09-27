@@ -22,19 +22,17 @@
   <dialog class="search-dialog" id="search-dialog" data-index="{{ "index.json" | relURL }}" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <span class="eyebrow">{{ if eq site.Language.Lang "en" }}Search{{ else }}Pesquisa{{ end }}</span>
-        <h2 id="search-title">{{ if eq site.Language.Lang "en" }}Search articles{{ else }}Pesquisar artigos{{ end }}</h2>
+        <h2 id="search-title">{{ if eq site.Language.Lang "en" }}Search for publications{{ else }}Pesquisar por publicações{{ end }}</h2>
       </div>
       <button class="icon-button" type="button" data-search-close aria-label="{{ if eq site.Language.Lang "en" }}Close search{{ else }}Fechar pesquisa{{ end }}">×</button>
     </div>
     <label class="search-field">
       <span class="sr-only">{{ if eq site.Language.Lang "en" }}Search terms{{ else }}Termos de pesquisa{{ end }}</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-      <input id="search-input" type="search" placeholder="{{ if eq site.Language.Lang "en" }}Search titles, summaries, or tags{{ else }}Pesquise títulos, resumos ou tags{{ end }}" autocomplete="off">
+      <input id="search-input" type="search" placeholder="{{ if eq site.Language.Lang "en" }}Type something...{{ else }}Digite alguma coisa...{{ end }}" autocomplete="off">
       <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
-      <p class="search-empty">{{ if eq site.Language.Lang "en" }}Enter keywords to start searching.{{ else }}Digite palavras-chave para começar a pesquisar.{{ end }}</p>
     </div>
   </dialog>
   {{ $js := resources.Get "js/main.js" | minify | fingerprint }}

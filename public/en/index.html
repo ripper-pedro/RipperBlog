@@ -73,9 +73,7 @@ try {
   <div class="site-shell">
     <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand brand--text" href="/RipperBlog/en/" aria-label="RipperBlog Home">
-      <span class="brand__text">Ripper&#39;s Blog<span>.</span></span>
-    </a>
+    <span aria-hidden="true"></span>
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
       
         <a href="/RipperBlog/en/" class="is-active" aria-current="page">Home</a>
@@ -198,28 +196,25 @@ try {
       
 <section class="hero">
   <div class="hero__inner">
-    <div class="hero__avatar fade-up">
-      <div class="hero__avatar-ring"></div>
-      <div class="hero__avatar-core">R</div>
-    </div>
-    <h1 class="hero__title fade-up">Hello, I'm Ripper.</h1>
-    <p class="hero__tagline fade-up">This is my personal space for projects, writing, and reflections.</p>
+    <h1 class="hero__title fade-up">Hello, you.</h1>
+    <p class="hero__tagline fade-up">My name is Pedro Ripper. Welcome to my little corner of the internet.</p>
     <div class="hero__cta fade-up">
-      <a class="button button--primary" href="/RipperBlog/en/about/">About me <span>→</span></a>
+      <a class="button button--primary" href="/RipperBlog/en/about/">About <span>→</span></a>
       <a class="button button--ghost" href="/RipperBlog/en/contact/">Contact</a>
     </div>
   </div>
+  <a class="hero__scroll" href="#explore" aria-label="Scroll to see more" title="Scroll to see more"><span></span></a>
 </section>
 
-<section class="section section--compact" data-reveal>
-  <header class="section-head">
-    <div><span class="section-index">01</span><span class="eyebrow">Explore</span></div>
-    <h2>Around this site</h2>
+<section class="section section--compact" id="explore" data-reveal>
+  <header class="section-head section-head--centered">
+    <div class="section-rule section-rule--left" aria-hidden="true"></div>
+    <h2>Take a look!</h2>
     <div class="section-rule"></div>
   </header>
   <div class="explore-grid">
-    <a class="explore-panel glass" href="/RipperBlog/en/projects/"><span class="eyebrow">Selected work</span><h3>Projects</h3><p>A collection of projects I've worked on.</p><span class="read-link">View projects →</span></a>
-    <a class="explore-panel glass" href="/RipperBlog/en/blog/"><span class="eyebrow">Writing</span><h3>Blog</h3><p>Writing and reflections on subjects that interest me.</p><span class="read-link">Read the blog →</span></a>
+    <a class="explore-panel glass" href="/RipperBlog/en/projects/"><h3>Projects</h3><p>Some things I've developed, or tried...</p><span class="read-link">View projects →</span></a>
+    <a class="explore-panel glass" href="/RipperBlog/en/blog/"><h3>Blog</h3><p>The written version of my inner thoughts.</p><span class="read-link">Read blog →</span></a>
   </div>
 </section>
 
@@ -258,23 +253,21 @@ try {
   <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <span class="eyebrow">Search</span>
-        <h2 id="search-title">Search articles</h2>
+        <h2 id="search-title">Search for publications</h2>
       </div>
       <button class="icon-button" type="button" data-search-close aria-label="Close search">×</button>
     </div>
     <label class="search-field">
       <span class="sr-only">Search terms</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-      <input id="search-input" type="search" placeholder="Search titles, summaries, or tags" autocomplete="off">
+      <input id="search-input" type="search" placeholder="Type something..." autocomplete="off">
       <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
-      <p class="search-empty">Enter keywords to start searching.</p>
     </div>
   </dialog>
   
-  <script src="/RipperBlog/js/main.min.d9bf401b5b5d4e31a6075fccf8d9b0335579df33811dfd49f92ef96dec9bdc37.js" integrity="sha256-2b9AG1tdTjGmB1/M&#43;NmwM1V53zOBHf1J&#43;S75beyb3Dc=" defer></script>
+  <script src="/RipperBlog/js/main.min.cf631c7db046ff17db52960651fbb375e9c7c44e85fa63cc15eb6a6c0666d5f9.js" integrity="sha256-z2McfbBG/xfbUpYGUfuzdenHxE6F&#43;mPMFetqbAZm1fk=" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
 <script type="module">
 import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';

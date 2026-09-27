@@ -1,12 +1,13 @@
 {{ define "main" }}
-<section class="page-hero">
-  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</span></div>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  {{ $projects := where .RegularPages "Draft" false }}
+  <div class="page-hero__stats"><span>{{ len $projects }} {{ if eq site.Language.Lang "en" }}projects{{ else }}projetos{{ end }}</span></div>
 </section>
 <section class="section section--compact" data-reveal>
-  {{ with .Content }}<div class="section-intro prose">{{ . }}</div>{{ end }}
-  {{ $projects := .RegularPages.ByDate.Reverse }}
+  {{ $projects = $projects.ByDate.Reverse }}
   {{ if $projects }}
     <div class="explore-grid projects-grid">
       {{ range $projects }}
@@ -22,7 +23,7 @@
       {{ end }}
     </div>
   {{ else }}
-    <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}Projects coming soon{{ else }}Projetos em breve{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Completed projects will appear here.{{ else }}Os projetos realizados aparecerão aqui.{{ end }}</p></div>
+    <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No projects yet{{ else }}Ainda não há projetos{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New projects will appear here.{{ else }}Novos projetos aparecerão aqui.{{ end }}</p></div>
   {{ end }}
 </section>
 {{ end }}

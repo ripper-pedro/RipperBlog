@@ -1,6 +1,4 @@
 ---
-title: 'Blog'
-description: 'Writing, ideas, and reflections.'
+title: 'My blog'
+description: "The written version of my inner thoughts."
 ---
-
-Personal writing and reflections.

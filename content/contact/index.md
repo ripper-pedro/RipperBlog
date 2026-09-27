@@ -1,7 +1,7 @@
 ---
-title: 'Contato'
-description: 'Me mande um oi! Você pode preencher o formulário abaixo ou clicar nos links no fim da página.'
+title: 'Fale comigo'
+description: 'Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.'
 type: contact
 ---
 
-Ao terminar de preencher, seu aplicativo de e-mail será aberto com a mensagem pronta para envio.
+Quando terminar de preencher, seu app de e-mail vai abrir com a mensagem já pronta pra enviar.

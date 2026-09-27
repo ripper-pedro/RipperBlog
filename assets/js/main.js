@@ -61,13 +61,30 @@
   })
 
   const revealNodes = document.querySelectorAll('[data-reveal]')
+  const homeExplore = document.querySelector('#explore')
+  const scrollPill = document.querySelector('.hero__scroll')
+  const syncHomeScrollState = () => {
+    if (!homeExplore) return
+    if (window.scrollY <= 2) {
+      homeExplore.classList.remove('is-visible')
+      scrollPill?.classList.remove('is-faded')
+      return
+    }
+    if (homeExplore.getBoundingClientRect().top < window.innerHeight * .92) {
+      homeExplore.classList.add('is-visible')
+      scrollPill?.classList.add('is-faded')
+    }
+  }
+  window.addEventListener('scroll', syncHomeScrollState, { passive: true })
+  syncHomeScrollState()
+
   if ('IntersectionObserver' in window) {
-    const scrollPill = document.querySelector('.hero__scroll')
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle('is-visible', entry.isIntersecting)
-        if (scrollPill && entry.target.id === 'latest') {
-          scrollPill.classList.toggle('is-faded', entry.isIntersecting)
+        const atHomeTop = entry.target === homeExplore && window.scrollY <= 2
+        entry.target.classList.toggle('is-visible', entry.isIntersecting && !atHomeTop)
+        if (scrollPill && entry.target.id === 'explore') {
+          scrollPill.classList.toggle('is-faded', entry.isIntersecting && !atHomeTop)
         }
       })
     }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' })
@@ -76,7 +93,7 @@
     const heroNode = document.querySelector('.hero')
     if (heroNode && scrollPill) {
       const heroObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) scrollPill.classList.remove('is-faded')
+        if (entries[0].isIntersecting && window.scrollY <= 2) scrollPill.classList.remove('is-faded')
       }, { threshold: 0 })
       heroObserver.observe(heroNode)
     }
@@ -99,7 +116,7 @@
   const renderSearch = (query) => {
     const term = query.trim().toLocaleLowerCase()
     if (!term) {
-      searchResults.innerHTML = '<p class="search-empty">' + t('Digite palavras-chave para começar a pesquisar.', 'Enter keywords to start searching.') + '</p>'
+      searchResults.innerHTML = ''
       return
     }
     if (!searchIndex) return
@@ -109,7 +126,7 @@
     }).slice(0, 12)
     searchResults.innerHTML = matches.length
       ? matches.map((item) => `<a class="search-result" href="${escapeHTML(item.url)}"><strong>${escapeHTML(item.title)}</strong><p>${escapeHTML(item.description || t('Sem resumo', 'No summary'))}</p><small>${escapeHTML(item.date)}${item.tags?.length ? ` · ${escapeHTML(item.tags.join(' / '))}` : ''}</small></a>`).join('')
-      : '<p class="search-empty">' + t('Nenhum artigo encontrado. Tente outras palavras-chave.', 'No matching articles, please try other keywords.') + '</p>'
+      : '<p class="search-empty">' + t('Hmm... Parece que eu ainda não publiquei nada sobre isso.', "Hmm... It seems I haven't published anything about that yet.") + '</p>'
   }
 
   const openSearch = async () => {

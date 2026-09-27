@@ -14,18 +14,6 @@
                 href="https://ripper-pedro.github.io/RipperBlog/en/about/"
                 />
   </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/blog/"
-                />
-  </url><url>
     <loc>https://ripper-pedro.github.io/RipperBlog/en/contact/</loc>
     <xhtml:link
                 rel="alternate"
@@ -36,6 +24,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ripper-pedro.github.io/RipperBlog/en/contact/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/blog/"
                 />
   </url><url>
     <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/</loc>

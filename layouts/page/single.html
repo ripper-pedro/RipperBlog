@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="page-hero">
   <div class="breadcrumbs">
-    <a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span>
+    <a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}</span>
   </div>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}

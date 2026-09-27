@@ -1,6 +1,4 @@
 ---
-title: 'Blog'
-description: 'Textos, ideias e reflexões.'
+title: 'Meu blog'
+description: 'A versão escrita do meu monólogo interior.'
 ---
-
-Textos e reflexões pessoais.

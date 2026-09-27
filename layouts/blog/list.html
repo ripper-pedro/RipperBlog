@@ -1,18 +1,19 @@
 {{ define "main" }}
-<section class="page-hero">
-  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>Blog</span></div>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
-  <div class="page-hero__stats"><span>{{ len .RegularPages }} {{ if eq site.Language.Lang "en" }}posts{{ else }}artigos{{ end }}</span></div>
+  {{ $posts := where .RegularPages "Draft" false }}
+  <div class="page-hero__stats"><span>{{ len $posts }} {{ if eq site.Language.Lang "en" }}posts{{ else }}postagens{{ end }}</span></div>
 </section>
 <section class="section section--compact" data-reveal>
   {{ with .Content }}<div class="section-intro prose">{{ . }}</div>{{ end }}
-  {{ $paginator := .Paginate .RegularPages.ByDate.Reverse }}
+  {{ $paginator := .Paginate $posts.ByDate.Reverse }}
   {{ if $paginator.Pages }}
     <div class="post-grid">{{ range $paginator.Pages }}{{ partial "post-card.html" . }}{{ end }}</div>
     {{ partial "pagination.html" (dict "Paginator" $paginator) }}
   {{ else }}
-    <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No posts yet{{ else }}Ainda não há artigos{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New writing will appear here.{{ else }}Novos textos aparecerão aqui.{{ end }}</p></div>
+    <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}No posts yet{{ else }}Ainda não há postagens{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New posts will appear here.{{ else }}Novas postagens aparecerão aqui.{{ end }}</p></div>
   {{ end }}
 </section>
 {{ end }}

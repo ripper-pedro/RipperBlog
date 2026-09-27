@@ -1,8 +1,6 @@
 <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand brand--text" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} {{ if eq .Site.Language.Lang "en" }}Home{{ else }}Início{{ end }}">
-      <span class="brand__text">{{ site.Params.brand | default (printf "%s's Blog" site.Params.author) | default site.Title }}<span>.</span></span>
-    </a>
+    <span aria-hidden="true"></span>
     <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Site.Language.Lang "en" }}Main navigation{{ else }}Navegação principal{{ end }}">
       {{ range site.Menus.main }}
         <a href="{{ .URL }}"{{ if $.IsMenuCurrent .Menu . }} class="is-active" aria-current="page"{{ end }}>{{ if eq .Identifier "home" }}{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}{{ else if eq .Identifier "about" }}{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}{{ else if eq .Identifier "projects" }}{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}{{ else if eq .Identifier "blog" }}Blog{{ else if eq .Identifier "contact" }}{{ if eq site.Language.Lang "en" }}Contact{{ else }}Contato{{ end }}{{ else }}{{ .Name }}{{ end }}</a>

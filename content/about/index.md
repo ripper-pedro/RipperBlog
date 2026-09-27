@@ -1,7 +1,7 @@
 ---
-title: 'Sobre'
+title: 'Sobre mim'
 description: 'Currículo de Ripper.'
 eyebrow: 'Currículo'
 ---
 
-Esta página será meu currículo. Vou acrescentar aqui minha formação, experiência, habilidades e outras informações profissionais.
+Esta página vai ser meu currículo.
