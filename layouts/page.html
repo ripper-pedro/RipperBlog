@@ -1,7 +1,6 @@
 {{ define "main" }}
 <article class="about-page">
   <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
-  <span class="eyebrow">{{ .Params.eyebrow | default (cond (eq site.Language.Lang "en") "Résumé" "Currículo") }}</span>
   <h1>{{ .Title }}</h1>
   <div class="about-page__intro prose">{{ .Content }}</div>
 </article>

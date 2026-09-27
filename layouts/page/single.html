@@ -3,8 +3,6 @@
   <div class="breadcrumbs">
     <a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span>
   </div>
-  {{ $eyebrow := or .Params.eyebrow (cond (eq site.Language.Lang "en") "About" "Sobre") }}
-  <span class="eyebrow">{{ $eyebrow }}</span>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
 </section>
