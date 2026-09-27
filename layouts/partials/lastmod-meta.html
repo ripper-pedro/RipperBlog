@@ -1,0 +1,11 @@
+{{/*
+  Renders the article's Lastmod time (only if strictly after Date) as:
+    <time datetime="ISO 8601">Updated YYYY-MM-DD HH:MM</time>
+  - The `datetime` attribute stays as a real, parseable offset (`Z07:00`) for screen readers,
+    crawlers, and any JS that consumes it.
+  - The visible suffix `(UTC+8)` is hard-coded because this site is authored exclusively in
+    CST+8 (Asia/Shanghai). If the site ever spans timezones, replace this with a lookup.
+*/}}
+{{ if and .Lastmod (ge .Lastmod .Date) }}
+<time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ if eq site.Language.Lang "en" }}Updated {{ .Lastmod.Format "Jan 2, 2006 at 15:04" }}{{ else }}Atualizado em {{ .Lastmod.Format "02/01/2006 às 15:04" }}{{ end }}</time>
+{{ end }}

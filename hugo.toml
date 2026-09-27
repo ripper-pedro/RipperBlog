@@ -1,13 +1,14 @@
 baseURL = 'https://ripper-pedro.github.io/RipperBlog/'
 title = 'RipperBlog'
 theme = 'lumenveil'
+defaultContentLanguage = 'pt-br'
+defaultContentLanguageInSubdir = false
+disableKinds = ['taxonomy', 'term']
 
-# Required output formats for search + taxonomy pages
+# Search index and feeds
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
   section = ['HTML', 'RSS']
-  taxonomy = ['HTML', 'RSS']
-  term = ['HTML', 'RSS']
 
 [outputFormats.JSON]
   mediaType = 'application/json'
@@ -19,10 +20,7 @@ theme = 'lumenveil'
   pagerSize = 6
 
 [taxonomies]
-  category = "categories"
   tag = "tags"
-  series = "series"
-  author = "authors"
 
 [markup]
   [markup.highlight]
@@ -36,56 +34,65 @@ theme = 'lumenveil'
     unsafe = true
 
 [permalinks]
-  posts = '/posts/:slug/'
+  blog = '/blog/:slug/'
 
 [imaging]
   quality = 85
 
 [params]
-  description = "Ripper's personal blog."
+  description = "Personal site of Ripper: projects, writing, and reflections."
   author = 'Ripper'
   initial = 'R'
-  avatar = '/images/avatar.png'
-  role = "Master's student"
-  tagline = 'A luminous reading-first experience.'
-  location = 'from Rio de Janeiro'
-  status = 'Currently writing'
-  email = 'you@example.com'
-  github = 'https://github.com/Hansen1018'
-  twitter = 'https://twitter.com/Hansen1018'
-  since = 2002
+  avatar = ''
+  intro = 'Este é meu espaço pessoal para compartilhar projetos, textos e reflexões.'
+  intro_en = 'This is my personal space for projects, writing, and reflections.'
+  email = 'pedromripper@gmail.com'
+  github = 'https://github.com/ripper-pedro'
+  linkedin = 'https://www.linkedin.com/in/pedro-m-ripper/'
+  discord = 'https://discord.com/users/376453662345789440'
+  twitter = ''
+  since = 2026
   copyright = 'CC BY-NC-ND 4.0 DEED'
   copyright_url = 'https://creativecommons.org/licenses/by-nc-nd/4.0/'
-  mainSections = ['posts']
+  mainSections = ['blog']
   highlight = 'hljs'
   math = true
 
 [menus]
   [[menus.main]]
+    identifier = 'home'
     name = 'Home'
     pageRef = '/'
     weight = 10
   [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 20
-  [[menus.main]]
+    identifier = 'about'
     name = 'About'
     pageRef = '/about'
-    weight = 25
+    weight = 20
   [[menus.main]]
-    name = 'Categories'
-    pageRef = '/categories'
+    identifier = 'projects'
+    name = 'Projects'
+    pageRef = '/projects'
     weight = 30
   [[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
+    identifier = 'blog'
+    name = 'Blog'
+    pageRef = '/blog'
     weight = 40
+  [[menus.main]]
+    identifier = 'contact'
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 50
 
 [languages]
   [languages.pt-br]
     languageName = 'Português'
     weight = 1
+    [languages.pt-br.params]
+      description = 'Site pessoal de Ripper, com projetos, textos e reflexões.'
   [languages.en]
     languageName = 'English'
     weight = 2
+    [languages.en.params]
+      description = 'Personal site of Ripper: projects, writing, and reflections.'

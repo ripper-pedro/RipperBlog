@@ -1,0 +1,34 @@
+<article class="post-card" data-year="{{ .Date.Format "2006" }}">
+  <a class="post-card__visual" href="{{ .RelPermalink }}" aria-label="{{ if eq site.Language.Lang "en" }}Read {{ .LinkTitle }}{{ else }}Ler {{ .LinkTitle }}{{ end }}">
+    {{ $cover := "" }}
+    {{ with .Params.cover }}
+      {{ $img := $.Resources.GetMatch (printf "%s" .) }}
+      {{ if $img }}
+        {{ $cover = $img.RelPermalink }}
+      {{ else }}
+        {{ $cover = . | relURL }}
+      {{ end }}
+    {{ end }}
+    {{ if $cover }}
+      <img src="{{ $cover }}" alt="" loading="lazy">
+    {{ else }}
+      <span>{{ if .LinkTitle }}{{ substr .LinkTitle 0 1 }}{{ else }}…{{ end }}</span>
+      <div class="post-card__grid"></div>
+    {{ end }}
+  </a>
+  <div class="post-card__body">
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+      <span>{{ if eq site.Language.Lang "en" }}{{ .ReadingTime }} min read{{ else }}{{ .ReadingTime }} min de leitura{{ end }}</span>
+      {{ with .Params.views }}<span class="post-meta__views">{{ if eq site.Language.Lang "en" }}{{ . }} views{{ else }}{{ . }} visualizações{{ end }}</span>{{ end }}
+    </div>
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <p>{{ .Description | default (.Summary | plainify | truncate 92) }}</p>
+    <div class="post-card__foot">
+      <div class="tag-list">
+        {{ range .Params.tags }}<span>#{{ . }}</span>{{ end }}
+      </div>
+      <a class="read-link" href="{{ .RelPermalink }}">{{ if eq site.Language.Lang "en" }}Read more{{ else }}Leia mais{{ end }} <span>→</span></a>
+    </div>
+  </div>
+</article>

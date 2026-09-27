@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+  <span class="eyebrow">{{ if eq site.Language.Lang "en" }}Get in touch{{ else }}Fale comigo{{ end }}</span>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</section>
+<section class="section section--compact" data-reveal>
+  <div class="article-main glass contact-card">
+    <div class="prose">{{ .Content }}</div>
+    {{ if site.Params.email }}
+    <form class="contact-form" id="contact-form" data-recipient="{{ site.Params.email }}">
+      <label>{{ if eq site.Language.Lang "en" }}Your name{{ else }}Seu nome{{ end }}<input name="name" autocomplete="name" required></label>
+      <label>{{ if eq site.Language.Lang "en" }}Your email{{ else }}Seu e-mail{{ end }}<input name="replyTo" type="email" autocomplete="email" required></label>
+      <label>{{ if eq site.Language.Lang "en" }}Subject{{ else }}Assunto{{ end }}<input name="subject" required></label>
+      <label>{{ if eq site.Language.Lang "en" }}Message{{ else }}Mensagem{{ end }}<textarea name="message" rows="7" required></textarea></label>
+      <button class="button button--primary" type="submit">{{ if eq site.Language.Lang "en" }}Prepare email{{ else }}Preparar e-mail{{ end }} <span>→</span></button>
+      <p class="contact-form__status" id="contact-status" role="status" aria-live="polite"></p>
+    </form>
+    {{ else }}
+    <p class="empty-state">{{ if eq site.Language.Lang "en" }}The contact form is not set up yet. Add your address to <code>params.email</code> in the site configuration.{{ else }}O formulário ainda não está configurado. Adicione seu endereço em <code>params.email</code> na configuração do site.{{ end }}</p>
+    {{ end }}
+  </div>
+</section>
+<script>
+(() => {
+  const form = document.getElementById('contact-form')
+  if (!form) return
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const data = new FormData(form)
+    const subject = String(data.get('subject') || '').trim()
+    const body = [
+      '{{ if eq site.Language.Lang "en" }}Name{{ else }}Nome{{ end }}: ' + String(data.get('name') || '').trim(),
+      '{{ if eq site.Language.Lang "en" }}Reply email{{ else }}E-mail para resposta{{ end }}: ' + String(data.get('replyTo') || '').trim(),
+      '',
+      String(data.get('message') || '').trim()
+    ].join('\n')
+    const url = 'mailto:' + form.dataset.recipient + '?subject=' + encodeURIComponent('[RipperBlog] ' + subject) + '&body=' + encodeURIComponent(body)
+    window.location.href = url
+  })
+})()
+</script>
+{{ end }}

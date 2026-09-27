@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+  <span class="eyebrow">{{ if eq site.Language.Lang "en" }}Selected work{{ else }}Trabalhos{{ end }}</span>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</section>
+<section class="section section--compact" data-reveal>
+  {{ with .Content }}<div class="section-intro prose">{{ . }}</div>{{ end }}
+  {{ $projects := .RegularPages.ByDate.Reverse }}
+  {{ if $projects }}
+    <div class="explore-grid projects-grid">
+      {{ range $projects }}
+      <article class="explore-panel glass project-card">
+        {{ with .Params.stack }}<span class="eyebrow">{{ delimit . " · " }}</span>{{ end }}
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify }}</p>{{ end }}
+        <div class="project-card__links">
+          <a class="read-link" href="{{ .RelPermalink }}">{{ if eq site.Language.Lang "en" }}Project details{{ else }}Detalhes do projeto{{ end }} →</a>
+          {{ with .Params.project_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ if eq site.Language.Lang "en" }}Live project{{ else }}Projeto publicado{{ end }} ↗</a>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}Projects coming soon{{ else }}Projetos em breve{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}Completed projects will appear here.{{ else }}Os projetos realizados aparecerão aqui.{{ end }}</p></div>
+  {{ end }}
+</section>
+{{ end }}

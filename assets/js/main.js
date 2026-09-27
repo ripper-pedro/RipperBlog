@@ -173,11 +173,11 @@
     const copyright = btn.dataset.copyright || ''
     const copyrightUrl = btn.dataset.copyrightUrl || ''
     const text = [
-      `\({t('Autor:', 'Author:')}\){author}`,
-      `\({t('Título do artigo:', 'Article title:')} [\){title}](${url})`,
-      `\({t('Data de publicação:', 'Published:')}\){date}`,
-      `\({t('Link do artigo:', 'Article link:')}\){url}`,
-      `\({t('Direitos autorais:', 'Copyright notice:')} [\){copyright}](${copyrightUrl})`
+      `${t('Autor:', 'Author:')}${author}`,
+      `${t('Título do artigo:', 'Article title:')} [${title}](${url})`,
+      `${t('Data de publicação:', 'Published:')}${date}`,
+      `${t('Link do artigo:', 'Article link:')}${url}`,
+      `${t('Direitos autorais:', 'Copyright notice:')} [${copyright}](${copyrightUrl})`
     ].join('\n')
     try {
       await navigator.clipboard.writeText(text)
@@ -250,7 +250,7 @@
       const pageHref = (page) => {
         const u = new URL(window.location.href)
         u.searchParams.set('page', String(page))
-        return `\({u.pathname}\){u.search}`
+        return `${u.pathname}${u.search}`
       }
       pagination.innerHTML = ''
       const prev = document.createElement(currentPage > 1 ? 'a' : 'span')
@@ -340,8 +340,8 @@
       const allPill = archive.querySelector('[data-archive-all]')
       if (allPill) allPill.classList.toggle('is-active', !year)
       
-      if (titleNode) titleNode.textContent = year ? t(`Artigos de \({year}`, `Articles in\){year}`) : t('Todos os artigos', 'All Articles')
-      if (labelNode) labelNode.textContent = year ? t(`Ano \({year}`, `Year\){year}`) : t('Todos os Artigos', 'All Articles')
+      if (titleNode) titleNode.textContent = year ? t(`Artigos de ${year}`, `Articles in ${year}`) : t('Todos os artigos', 'All Articles')
+      if (labelNode) labelNode.textContent = year ? t(`Ano ${year}`, `Year ${year}`) : t('Todos os Artigos', 'All Articles')
       
       if (emptyNode) emptyNode.hidden = visible !== 0 || !year
       if (pagination) {

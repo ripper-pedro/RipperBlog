@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en">
-<head><script src="/RipperBlog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=RipperBlog/livereload" data-no-instant defer></script>
+<html lang="pt-br">
+<head>
   
+
 
 
 
@@ -21,29 +22,32 @@ try {
   
   const btn = document.querySelector('[data-theme-toggle]');
   if (btn) {
-    const label = theme === 'light' ? '切换深色模式' : '切换浅色模式';
+    const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+    const label = theme === 'light'
+      ? (isEnglish ? 'Switch to dark mode' : 'Mudar para o modo escuro')
+      : (isEnglish ? 'Switch to light mode' : 'Mudar para o modo claro');
     btn.setAttribute('aria-label', label);
     btn.title = label;
   }
 } catch (e) {}
 </script>
 <title>404 Page not found · RipperBlog</title>
-<meta name="description" content="Ripper&#39;s personal blog.">
+<meta name="description" content="Site pessoal de Ripper, com projetos, textos e reflexões.">
 <meta name="author" content="Ripper">
-<link rel="canonical" href="http://localhost:1313/RipperBlog/404.html">
+<link rel="canonical" href="https://ripper-pedro.github.io/RipperBlog/404.html">
 <link rel="icon" href="/RipperBlog/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/RipperBlog/css/main.min.0f9eadbaa579a1fed5faad4f677edbeeebbb312729c43a12371071a78ab05d08.css" integrity="sha256-D56tuqV5of7V&#43;q1PZ37b7uu7MScpxDoSNxBxp4qwXQg=">
+<link rel="stylesheet" href="/RipperBlog/css/main.min.css" integrity="">
 
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="404 Page not found · RipperBlog">
-<meta property="og:description" content="Ripper&#39;s personal blog.">
-<meta property="og:url" content="http://localhost:1313/RipperBlog/404.html">
-<meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="http://localhost:1313/RipperBlog/og.svg">
-<meta name="twitter:image" content="http://localhost:1313/RipperBlog/og.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@Hansen1018"><meta name="twitter:title" content="404 Page not found · RipperBlog">
-<meta name="twitter:description" content="Ripper&#39;s personal blog.">
-<meta name="twitter:url" content="http://localhost:1313/RipperBlog/404.html">
+<meta property="og:description" content="Site pessoal de Ripper, com projetos, textos e reflexões.">
+<meta property="og:url" content="https://ripper-pedro.github.io/RipperBlog/404.html">
+<meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="https://ripper-pedro.github.io/RipperBlog/og.svg">
+<meta name="twitter:image" content="https://ripper-pedro.github.io/RipperBlog/og.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="404 Page not found · RipperBlog">
+<meta name="twitter:description" content="Site pessoal de Ripper, com projetos, textos e reflexões.">
+<meta name="twitter:url" content="https://ripper-pedro.github.io/RipperBlog/404.html">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/monokai.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
 <script>document.addEventListener('DOMContentLoaded',function(){if(window.hljs)hljs.highlightAll();});</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
@@ -51,13 +55,13 @@ try {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="document.querySelectorAll('.prose').forEach(function(t){if(t.closest('[data-katex-rendered]'))return;t.setAttribute('data-katex-rendered','1');if(window.renderMathInElement)renderMathInElement(t,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});});"></script><script type="application/ld+json">
 
-{"@context":"https://schema.org","@type":"WebSite","name":"RipperBlog","url":"http://localhost:1313/RipperBlog/","description":"Ripper's personal blog.","potentialAction":{"@type":"SearchAction","target":"http:\/\/localhost:1313\/RipperBlog\/?q={search_term_string}","query-input":"required name=search_term_string"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"RipperBlog","url":"https://ripper-pedro.github.io/RipperBlog/","description":"Site pessoal de Ripper, com projetos, textos e reflexões.","potentialAction":{"@type":"SearchAction","target":"https:\/\/ripper-pedro.github.io\/RipperBlog\/?q={search_term_string}","query-input":"required name=search_term_string"}}
 
 </script>
 
 </head>
 <body>
-  <a class="skip-link" href="#main-content">跳到正文</a>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
   <div class="aurora" aria-hidden="true">
     <div class="aurora__grid"></div>
     <div class="aurora__blob aurora__blob--violet"></div>
@@ -68,31 +72,31 @@ try {
   <div class="site-shell">
     <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand brand--text" href="/RipperBlog/" aria-label="RipperBlog Home">
+    <a class="brand brand--text" href="/RipperBlog/" aria-label="RipperBlog Início">
       <span class="brand__text">Ripper&#39;s Blog<span>.</span></span>
     </a>
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+    <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
       
-        <a href="/RipperBlog/">Home</a>
+        <a href="/RipperBlog/">Início</a>
       
-        <a href="/RipperBlog/posts/">Posts</a>
+        <a href="/RipperBlog/about/">Sobre</a>
       
-        <a href="/RipperBlog/about/">About</a>
+        <a href="/RipperBlog/projects/">Projetos</a>
       
-        <a href="/RipperBlog/categories/">Categories</a>
+        <a href="/RipperBlog/blog/">Blog</a>
       
-        <a href="/RipperBlog/tags/">Tags</a>
+        <a href="/RipperBlog/contact/">Contato</a>
       
     </nav>
     <div class="header-actions">
-      <button class="icon-button" type="button" data-search-open aria-label="Search" title="Search">
+      <button class="icon-button" type="button" data-search-open aria-label="Pesquisar" title="Pesquisar">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
       </button>
 
       
       <div class="translate-container" style="display: inline-flex; position: relative; align-items: center;">
         
-        <button class="icon-button" type="button" id="translate-btn" aria-label="Change language" title="Change language">
+        <button class="icon-button" type="button" id="translate-btn" aria-label="Mudar idioma" title="Mudar idioma">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m5 8 6 6"></path>
             <path d="m4 14 6-6 2-3"></path>
@@ -107,11 +111,11 @@ try {
         <div id="lang_dropdown" class="lang_dropdown">
           
             
-              <a href="/RipperBlog/pt-br/404.html">
+              <a href="/RipperBlog/404.html">
                 Português
               </a>
             
-              <a href="/RipperBlog/404.html">
+              <a href="/RipperBlog/en/404.html">
                 English
               </a>
             
@@ -119,12 +123,12 @@ try {
         </div>
       </div>
 
-      <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Alternar tema" title="Alternar tema">
         <svg class="theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5 8.5 8.5 0 1 0 20.5 14.4Z"/></svg>
         <svg class="theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
       </button>
       <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-menu-toggle>
-        <span></span><span></span><span></span><span class="sr-only">Open menu</span>
+        <span></span><span></span><span></span><span class="sr-only">Abrir menu</span>
       </button>
     </div>
   </div>
@@ -224,46 +228,19 @@ try {
   <span class="not-found__code" aria-hidden="true">404</span>
 
   <div class="not-found__content glass">
-    <span class="eyebrow">Page not found</span>
-    <h1>这一页走丢了。</h1>
-    <p>你访问的页面不存在、已移动，或者链接输入有误。<br>不如从下面这几个入口继续。</p>
+    <span class="eyebrow">Página não encontrada</span>
+    <h1>Esta página se perdeu.</h1>
+    <p>A página pode não existir, ter mudado de endereço ou o link pode estar incorreto.<br>Tente uma destas opções.</p>
     <code class="not-found__path" id="not-found-path" aria-live="polite">/</code>
     <div class="not-found__cta">
-      <a class="button button--primary" href="/RipperBlog/">返回首页</a>
-      <button class="button button--ghost" type="button" data-search-open>搜索文章</button>
+      <a class="button button--primary" href="/RipperBlog/">Ir para o início</a>
+      <button class="button button--ghost" type="button" data-search-open>Pesquisar artigos</button>
     </div>
   </div>
 </section>
 
 
 
-
-<section class="section section--compact not-found__suggest" data-reveal>
-  <header class="section-head">
-    <div><span class="section-index">→</span><span class="eyebrow">Recent writing</span></div>
-    <h2>看看最近在写的</h2>
-    <div class="section-rule"></div>
-  </header>
-  <div class="not-found__suggest-grid">
-    
-    <a class="suggest-card" href="/RipperBlog/posts/meu-primeiro-post/">
-      <div class="post-meta">
-        <time datetime="2026-09-25">2026.09.25</time>
-        <span>0 分钟阅读</span>
-        
-      </div>
-      <strong>Meu Primeiro Post</strong>
-      <p></p>
-      <span class="read-link">阅读全文 <span>→</span></span>
-    </a>
-    
-  </div>
-  <div class="section-action">
-    
-      <a class="button button--ghost" href="/RipperBlog/posts/">浏览全部文章 <span>→</span></a>
-    
-  </div>
-</section>
 
 
 <script defer>
@@ -279,53 +256,56 @@ try {
 
     </main>
     <footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <a class="brand brand--footer" href="/RipperBlog/"><span class="brand__mark">R</span><span class="brand__text">Ripper<span>.</span></span></a>
-      <p>A luminous reading-first experience.</p>
-    </div>
-    <div class="footer-links">
-      <a href="https://github.com/Hansen1018" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://twitter.com/Hansen1018" target="_blank" rel="noopener noreferrer">Twitter</a>
-      <a href="mailto:you@example.com">Email</a>
-      <a href="/RipperBlog/index.xml">RSS</a>
-    </div>
-  </div>
   <div class="footer-bottom">
-    <span>© 2002 – 2026 Ripper</span>
-    <span>由 Hugo 驱动 · <a href="https://github.com/Hansen1018/hugo-theme-lumenveil" target="_blank" rel="noopener noreferrer">Theme Lumenveil designed by Hansen</a></span>
-    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">Licensed under CC BY-NC-ND 4.0 DEED</a>
+    <span class="footer-credit">
+      Feito por Ripper © 2026 com
+      <a class="footer-hugo" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" aria-label="Hugo" title="Hugo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.754 0a3.998 3.998 0 0 0-2.049.596L3.33 4.532a4.252 4.252 0 0 0-2.017 3.615v8.03c0 1.473.79 2.838 2.067 3.574l6.486 3.733a3.88 3.88 0 0 0 3.835.018l7.043-3.966a3.817 3.817 0 0 0 1.943-3.323V7.752a3.57 3.57 0 0 0-1.774-3.084L13.817.541a3.998 3.998 0 0 0-2.063-.54zm.022 1.674c.413-.006.828.1 1.2.315l7.095 4.127c.584.34.941.96.94 1.635v8.462c0 .774-.414 1.484-1.089 1.864l-7.042 3.966a2.199 2.199 0 0 1-2.179-.01l-6.485-3.734a2.447 2.447 0 0 1-1.228-2.123v-8.03c0-.893.461-1.72 1.221-2.19l6.376-3.935a2.323 2.323 0 0 1 1.19-.347zm-4.7 3.844V18.37h2.69v-5.62h4.46v5.62h2.696V5.518h-2.696v4.681h-4.46V5.518Z"/></svg>
+        <strong>Hugo</strong>
+      </a>
+    </span>
+    <nav class="footer-social" aria-label="Redes sociais">
+      <a class="footer-social__github" href="https://github.com/ripper-pedro" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a class="footer-social__linkedin" href="https://www.linkedin.com/in/pedro-m-ripper/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      
+      <a class="footer-social__discord" href="https://discord.com/users/376453662345789440" target="_blank" rel="noopener noreferrer" aria-label="Discord" title="Discord">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3936-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286ZM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+      </a>
+      
+    </nav>
   </div>
 </footer>
 
-<button class="back-to-top" type="button" data-back-to-top aria-label="回到顶部">
+<button class="back-to-top" type="button" data-back-to-top aria-label="Voltar ao topo">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
-
-
 <div class="scroll-progress" data-scroll-progress aria-hidden="true"><span class="scroll-progress__bar"></span></div>
 
   </div>
   <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <span class="eyebrow">Search</span>
-        <h2 id="search-title">搜索文章</h2>
+        <span class="eyebrow">Pesquisa</span>
+        <h2 id="search-title">Pesquisar artigos</h2>
       </div>
-      <button class="icon-button" type="button" data-search-close aria-label="关闭搜索">×</button>
+      <button class="icon-button" type="button" data-search-close aria-label="Fechar pesquisa">×</button>
     </div>
     <label class="search-field">
-      <span class="sr-only">搜索关键词</span>
+      <span class="sr-only">Termos de pesquisa</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-      <input id="search-input" type="search" placeholder="输入标题、摘要或标签" autocomplete="off">
+      <input id="search-input" type="search" placeholder="Pesquise títulos, resumos ou tags" autocomplete="off">
       <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
-      <p class="search-empty">输入关键词开始搜索。</p>
+      <p class="search-empty">Digite palavras-chave para começar a pesquisar.</p>
     </div>
   </dialog>
   
-  <script src="/RipperBlog/js/main.min.2a2aa7f7193916c26315aae5e9da1fb673e6d35939b968ac0dc2a3c0bf739eec.js" integrity="sha256-Kiqn9xk5FsJjFarl6doftnPm01k5uWisDcKjwL9znuw=" defer></script>
+  <script src="/RipperBlog/js/main.min.d9bf401b5b5d4e31a6075fccf8d9b0335579df33811dfd49f92ef96dec9bdc37.js" integrity="sha256-2b9AG1tdTjGmB1/M&#43;NmwM1V53zOBHf1J&#43;S75beyb3Dc=" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
 <script type="module">
 import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';

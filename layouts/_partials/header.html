@@ -5,7 +5,7 @@
     </a>
     <nav class="main-nav" id="main-nav" aria-label="{{ if eq .Site.Language.Lang "en" }}Main navigation{{ else }}Navegação principal{{ end }}">
       {{ range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if $.IsMenuCurrent .Menu . }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ if $.IsMenuCurrent .Menu . }} class="is-active" aria-current="page"{{ end }}>{{ if eq .Identifier "home" }}{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}{{ else if eq .Identifier "about" }}{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}{{ else if eq .Identifier "projects" }}{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}{{ else if eq .Identifier "blog" }}Blog{{ else if eq .Identifier "contact" }}{{ if eq site.Language.Lang "en" }}Contact{{ else }}Contato{{ end }}{{ else }}{{ .Name }}{{ end }}</a>
       {{ end }}
     </nav>
     <div class="header-actions">
@@ -36,9 +36,9 @@
               </a>
             {{ end }}
           {{ else }}
-            {{ range site.Languages }}
-              <a href="/{{ .Lang }}/">
-                {{ if eq .Lang "pt-br" }}Português{{ else if eq .Lang "pt" }}Português{{ else if eq .Lang "en" }}English{{ else }}{{ .LanguageName }}{{ end }}
+            {{ range site.Sites }}
+              <a href="{{ .Home.RelPermalink }}">
+                {{ if eq .Language.Lang "pt-br" }}Português{{ else if eq .Language.Lang "pt" }}Português{{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}
               </a>
             {{ end }}
           {{ end }}
