@@ -1,0 +1,8 @@
+{{- partial "liquid-glass-button.html" (dict
+  "text" (.Get "text")
+  "href" (.Get "href")
+  "type" (.Get "type")
+  "target" (.Get "target")
+  "rel" (.Get "rel")
+  "arrow" (ne (.Get "arrow") "false")
+) -}}

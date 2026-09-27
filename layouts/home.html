@@ -9,7 +9,7 @@
     <p class="hero__tagline fade-up">{{ if eq site.Language.Lang "en" }}{{ site.Params.intro_en }}{{ else }}{{ site.Params.intro }}{{ end }}</p>
     <div class="hero__cta fade-up">
       <a class="button button--primary" href="{{ "about/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}About me{{ else }}Sobre mim{{ end }} <span>→</span></a>
-      <a class="button button--ghost" href="{{ "blog/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}Read the blog{{ else }}Ler o blog{{ end }}</a>
+      <a class="button button--ghost" href="{{ "contact/" | relLangURL }}">{{ if eq site.Language.Lang "en" }}Contact{{ else }}Contato{{ end }}</a>
     </div>
   </div>
 </section>
@@ -22,7 +22,7 @@
   </header>
   <div class="explore-grid">
     <a class="explore-panel glass" href="{{ "projects/" | relLangURL }}"><span class="eyebrow">{{ if eq site.Language.Lang "en" }}Selected work{{ else }}Trabalhos{{ end }}</span><h3>{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</h3><p>{{ if eq site.Language.Lang "en" }}A collection of projects I've worked on.{{ else }}Uma coleção de projetos que desenvolvi.{{ end }}</p><span class="read-link">{{ if eq site.Language.Lang "en" }}View projects{{ else }}Ver projetos{{ end }} →</span></a>
-    <a class="explore-panel glass" href="{{ "contact/" | relLangURL }}"><span class="eyebrow">{{ if eq site.Language.Lang "en" }}Get in touch{{ else }}Contato{{ end }}</span><h3>{{ if eq site.Language.Lang "en" }}Contact{{ else }}Entre em contato{{ end }}</h3><p>{{ if eq site.Language.Lang "en" }}Send me a message about a question, idea, or opportunity.{{ else }}Envie uma mensagem com uma dúvida, ideia ou oportunidade.{{ end }}</p><span class="read-link">{{ if eq site.Language.Lang "en" }}Send a message{{ else }}Enviar mensagem{{ end }} →</span></a>
+    <a class="explore-panel glass" href="{{ "blog/" | relLangURL }}"><span class="eyebrow">{{ if eq site.Language.Lang "en" }}Writing{{ else }}Textos{{ end }}</span><h3>{{ if eq site.Language.Lang "en" }}Blog{{ else }}Blog{{ end }}</h3><p>{{ if eq site.Language.Lang "en" }}Writing and reflections on subjects that interest me.{{ else }}Textos e reflexões sobre assuntos que me interessam.{{ end }}</p><span class="read-link">{{ if eq site.Language.Lang "en" }}Read the blog{{ else }}Ler o blog{{ end }} →</span></a>
   </div>
 </section>
 {{ end }}

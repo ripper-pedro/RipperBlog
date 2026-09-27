@@ -1,0 +1,13 @@
+{{- $text := .text | default "Button" -}}
+{{- $arrow := .arrow | default true -}}
+<span class="liquid-glass-button-wrap">
+  {{- with .href -}}
+  <a class="liquid-glass-button" href="{{ . }}"{{ with $.target }} target="{{ . }}"{{ end }}{{ with $.rel }} rel="{{ . }}"{{ end }}>
+    <span class="liquid-glass-button__label">{{ $text }}</span>{{ if $arrow }}<span class="liquid-glass-button__arrow" aria-hidden="true">→</span>{{ end }}
+  </a>
+  {{- else -}}
+  <button class="liquid-glass-button" type="{{ .type | default "button" }}"{{ with .name }} name="{{ . }}"{{ end }}{{ with .value }} value="{{ . }}"{{ end }}>
+    <span class="liquid-glass-button__label">{{ $text }}</span>{{ if $arrow }}<span class="liquid-glass-button__arrow" aria-hidden="true">→</span>{{ end }}
+  </button>
+  {{- end -}}
+</span>
