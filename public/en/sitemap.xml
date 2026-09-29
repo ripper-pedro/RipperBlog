@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/about/</loc>
+    <loc>http://localhost:1313/RipperBlog/en/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/about/"
+                href="http://localhost:1313/RipperBlog/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/about/"
+                href="http://localhost:1313/RipperBlog/en/about/"
                 />
   </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/contact/</loc>
+    <loc>http://localhost:1313/RipperBlog/en/contact/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/contact/"
+                href="http://localhost:1313/RipperBlog/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/contact/"
+                href="http://localhost:1313/RipperBlog/en/contact/"
                 />
   </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog/</loc>
+    <loc>http://localhost:1313/RipperBlog/en/blog/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/blog/"
+                href="http://localhost:1313/RipperBlog/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/blog/"
+                href="http://localhost:1313/RipperBlog/en/blog/"
                 />
   </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/</loc>
+    <loc>http://localhost:1313/RipperBlog/en/projects/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/projects/"
+                href="http://localhost:1313/RipperBlog/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/projects/"
+                href="http://localhost:1313/RipperBlog/en/projects/"
                 />
   </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/</loc>
+    <loc>http://localhost:1313/RipperBlog/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/"
+                href="http://localhost:1313/RipperBlog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/"
+                href="http://localhost:1313/RipperBlog/en/"
                 />
   </url>
 </urlset>

@@ -24,8 +24,8 @@
 }
 
 @media (max-width: 600px) {
-  .site-footer .footer-bottom { grid-template-columns: 1fr auto; }
-  .footer-social { grid-column: 2; grid-row: 1 / span 2; }
+  .site-footer .footer-bottom { grid-template-columns: 1fr; justify-items: center; gap: 12px; }
+  .footer-social { grid-column: 1; grid-row: auto; justify-content: center; }
 }
 
 html[data-theme="dark"] .site-footer .footer-hugo { color: var(--ink-1); }
