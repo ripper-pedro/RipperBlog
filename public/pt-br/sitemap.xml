@@ -2,19 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/RipperBlog/contact/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="http://localhost:1313/RipperBlog/contact/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/RipperBlog/en/contact/"
-                />
-  </url><url>
     <loc>http://localhost:1313/RipperBlog/blog/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -26,7 +15,27 @@
                 href="http://localhost:1313/RipperBlog/en/blog/"
                 />
   </url><url>
+    <loc>http://localhost:1313/RipperBlog/blog_classifications/escrita/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/blog/ideias-em-constru%C3%A7%C3%A3o/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/projects/teste/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/RipperBlog/projects/teste/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/RipperBlog/en/projects/teste/"
+                />
+  </url><url>
     <loc>http://localhost:1313/RipperBlog/projects/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -38,7 +47,11 @@
                 href="http://localhost:1313/RipperBlog/en/projects/"
                 />
   </url><url>
+    <loc>http://localhost:1313/RipperBlog/projects/prototipo-robotico/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/RipperBlog/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -48,6 +61,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/RipperBlog/en/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/project_classifications/rob%C3%B3tica/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/project_classifications/teste/</loc>
+    <lastmod>2026-10-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/blog/meu-primeiro-post/</loc>
+    <lastmod>2026-09-25T16:37:05+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/blog_classifications/teste/</loc>
+    <lastmod>2026-09-25T16:37:05+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/RipperBlog/contact/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="http://localhost:1313/RipperBlog/contact/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/RipperBlog/en/contact/"
                 />
   </url><url>
     <loc>http://localhost:1313/RipperBlog/about/</loc>

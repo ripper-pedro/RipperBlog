@@ -1,0 +1,42 @@
+{{ $page := .page }}
+{{ $kind := .kind }}
+{{ $ptOnly := .portugueseOnly | default false }}
+{{ $project := eq $kind "project" }}
+{{ $terms := $page.Params.tags }}
+{{ if $project }}{{ $terms = $page.Params.stack }}{{ end }}
+{{ $cover := "" }}
+{{ with $page.Params.cover }}
+  {{ $image := $page.Resources.GetMatch (printf "%s" .) }}
+  {{ if $image }}{{ $cover = $image.RelPermalink }}{{ else }}{{ $cover = . | relURL }}{{ end }}
+{{ end }}
+{{ $en := eq site.Language.Lang "en" }}
+{{ $month := int ($page.Date.Format "1") }}
+{{ $monthsEn := slice "January" "February" "March" "April" "May" "June" "July" "August" "September" "October" "November" "December" }}
+{{ $monthsPt := slice "janeiro" "fevereiro" "março" "abril" "maio" "junho" "julho" "agosto" "setembro" "outubro" "novembro" "dezembro" }}
+<article class="content-card{{ if $cover }} content-card--image{{ end }}" data-year="{{ $page.Date.Format "2006" }}" data-tags="{{ if not $project }}{{ $terms | default slice | jsonify }}{{ end }}" data-stack="{{ if $project }}{{ $terms | default slice | jsonify }}{{ end }}">
+  <div class="content-card__main{{ with $terms }} content-card__main--tags{{ end }}">
+    <h2><a href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a></h2>
+    <p class="content-card__description">{{ $page.Description | default ($page.Summary | plainify | truncate 150) }}</p>
+    {{ with $terms }}<div class="content-card__tags tag-list">{{ range . }}
+      {{ $icon := "" }}
+      {{ if $project }}
+        {{ $label := lower . }}
+        {{ if or (eq $label "html") (eq $label "html5") }}{{ $icon = "html5" }}
+        {{ else if or (eq $label "css") (eq $label "css3") }}{{ $icon = "css3" }}
+        {{ else if or (eq $label "javascript") (eq $label "js") }}{{ $icon = "javascript" }}
+        {{ else if eq $label "pytorch" }}{{ $icon = "pytorch" }}
+        {{ else if eq $label "python" }}{{ $icon = "python" }}
+        {{ else if or (eq $label "raspberry pi") (eq $label "raspberrypi") }}{{ $icon = "raspberrypi" }}
+        {{ else if eq $label "react" }}{{ $icon = "react" }}
+        {{ else if eq $label "hugo" }}{{ $icon = "hugo" }}{{ end }}
+      {{ end }}
+      <span class="content-card__tag-chip{{ if $project }} content-card__stack-item{{ end }}">{{ if $icon }}<img src="https://cdn.simpleicons.org/{{ $icon }}/000000" alt="" aria-hidden="true" loading="lazy">{{ end }}{{ if not $project }}#{{ end }}{{ . }}</span>
+    {{ end }}</div>{{ end }}
+    <div class="content-card__meta"><time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ if $en }}{{ index $monthsEn (sub $month 1) }} {{ $page.Date.Format "2, 2006" }}{{ else }}{{ $page.Date.Format "2" }} de {{ index $monthsPt (sub $month 1) }}, {{ $page.Date.Format "2006" }}{{ end }}</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>{{ if $en }}{{ $page.ReadingTime }} min read{{ else }}{{ $page.ReadingTime }} min de leitura{{ end }}</span></div>
+  </div>
+  <div class="content-card__aside{{ if not $cover }} content-card__aside--empty{{ end }}">
+    {{ if $cover }}<img class="content-card__image" src="{{ $cover }}" alt="{{ $page.Params.cover_alt | default $page.LinkTitle }}" loading="lazy">{{ end }}
+    {{ if $ptOnly }}<span class="content-card__warning"><span aria-hidden="true">!</span>{{ if $en }}Portuguese only{{ else }}Somente em português{{ end }}</span>{{ end }}
+    <a class="content-card__action" href="{{ $page.RelPermalink }}">{{ if $en }}View{{ else }}Conferir{{ end }} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

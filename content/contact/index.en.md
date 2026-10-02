@@ -1,6 +1,6 @@
 ---
-title: 'Contact me'
-description: 'Say hi! You can fill the form below or just use the links at the bottom of the page.'
+title: 'Contact'
+description: 'Say hi!'
 type: contact
 ---
 

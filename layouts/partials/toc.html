@@ -16,7 +16,7 @@
 {{ if .TableOfContents }}{{ if ne .Params.toc false }}
 <aside class="toc">
   <div class="toc__inner">
-    <span class="eyebrow">{{ if eq site.Language.Lang "en" }}In this article{{ else }}Neste artigo{{ end }}</span>
+    <span class="eyebrow">{{ if eq site.Language.Lang "en" }}In this post{{ else }}Nesta postagem{{ end }}</span>
     <h2>{{ if eq site.Language.Lang "en" }}On this page{{ else }}Nesta página{{ end }}</h2>
     {{ .TableOfContents }}
   </div>

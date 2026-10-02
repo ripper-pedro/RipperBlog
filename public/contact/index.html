@@ -31,22 +31,22 @@ try {
   }
 } catch (e) {}
 </script>
-<title>Fale comigo · RipperBlog</title>
-<meta name="description" content="Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.">
+<title>RipperBlog - Contato</title>
+<meta name="description" content="Me manda um oi!">
 <meta name="author" content="Ripper">
 <link rel="canonical" href="http://localhost:1313/RipperBlog/contact/">
 <link rel="icon" href="/RipperBlog/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/RipperBlog/css/main.min.css" integrity="">
+<link rel="stylesheet" href="/RipperBlog/css/main.min.ef2ab7b1d9e1842f191313ae9cf437467add591801d1de4e40b3c6aedb744094.css" integrity="sha256-7yq3sdnhhC8ZExOunPQ3RnrdWRgB0d5OQLPGrtt0QJQ=">
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fale comigo · RipperBlog">
-<meta property="og:description" content="Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.">
+<meta property="og:title" content="RipperBlog - Contato">
+<meta property="og:description" content="Me manda um oi!">
 <meta property="og:url" content="http://localhost:1313/RipperBlog/contact/">
 <meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="http://localhost:1313/RipperBlog/og.svg">
 <meta name="twitter:image" content="http://localhost:1313/RipperBlog/og.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Fale comigo · RipperBlog">
-<meta name="twitter:description" content="Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="RipperBlog - Contato">
+<meta name="twitter:description" content="Me manda um oi!">
 <meta name="twitter:url" content="http://localhost:1313/RipperBlog/contact/">
 
 <meta property="article:published_time" content="0001-01-01T00:00:00Z">
@@ -58,7 +58,7 @@ try {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="document.querySelectorAll('.prose').forEach(function(t){if(t.closest('[data-katex-rendered]'))return;t.setAttribute('data-katex-rendered','1');if(window.renderMathInElement)renderMathInElement(t,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});});"></script><script type="application/ld+json">
 
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fale comigo","description":"Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Ripper"},"mainEntityOfPage":"http://localhost:1313/RipperBlog/contact/"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Contato","description":"Me manda um oi!","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Ripper"},"mainEntityOfPage":"http://localhost:1313/RipperBlog/contact/"}
 
 </script>
 
@@ -162,11 +162,31 @@ try {
     text-align: left;
     transition: background 0.2s ease, color 0.2s ease;
   }
+
+  .lang_dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
   
   .lang_dropdown a:hover {
     background: var(--bg-2);
     color: var(--ink-1);
   }
+
+  .lang_dropdown button:hover { background: var(--bg-2); color: var(--ink-1); }
+  .lang-unavailable { display: flex; align-items: flex-start; gap: 10px; width: 260px; margin: 8px; padding: 12px; border: 1px solid var(--line-strong); border-left: 3px solid var(--ink-1); border-radius: var(--radius-sm, 12px); background: var(--bg-2); color: var(--ink-2); font-size: 0.82rem; line-height: 1.45; }
+  .lang-unavailable[hidden] { display: none; }
+  .lang-unavailable strong { display: inline-block; margin-bottom: 3px; color: var(--ink-1); font-size: 0.86rem; }
+  .lang-unavailable__icon { display: grid; flex: 0 0 20px; width: 20px; height: 20px; place-items: center; border: 1px solid var(--ink-2); border-radius: 50%; color: var(--ink-1); font-weight: 700; }
 
    
   html[data-theme="dark"] .lang_dropdown {
@@ -181,6 +201,8 @@ try {
     var langDiv = document.getElementById('lang_dropdown');
     if (langDiv.style.display === 'none' || langDiv.style.display === '') {
       langDiv.style.display = 'block';
+      var notice = langDiv.querySelector('[data-translation-notice]');
+      if (notice) notice.hidden = false;
     } else {
       langDiv.style.display = 'none';
     }
@@ -198,8 +220,8 @@ try {
       
 <section class="page-hero contact-page-hero">
   <div class="breadcrumbs"><a href="/RipperBlog/">Início</a><span>/</span><span>Contato</span></div>
-  <h1>Fale comigo</h1>
-  <p>Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.</p>
+  <h1>Contato</h1>
+  <p>Me manda um oi!</p>
 </section>
 <section class="section section--compact" data-reveal>
   <div class="article-main glass contact-card">
@@ -271,7 +293,7 @@ try {
   <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <h2 id="search-title">Pesquisar por publicações</h2>
+        <h2 id="search-title">Pesquisar postagens e projetos</h2>
       </div>
       <button class="icon-button" type="button" data-search-close aria-label="Fechar pesquisa">×</button>
     </div>
@@ -279,13 +301,12 @@ try {
       <span class="sr-only">Termos de pesquisa</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
       <input id="search-input" type="search" placeholder="Digite alguma coisa..." autocomplete="off">
-      <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
     </div>
   </dialog>
   
-  <script src="/RipperBlog/js/main.min.cf631c7db046ff17db52960651fbb375e9c7c44e85fa63cc15eb6a6c0666d5f9.js" integrity="sha256-z2McfbBG/xfbUpYGUfuzdenHxE6F&#43;mPMFetqbAZm1fk=" defer></script>
+  <script src="/RipperBlog/js/main.min.4e1f60cc232aa1d539f2c43248d9dc3cfa9d8c31ab00e1f9c703a29006fd2cf8.js" integrity="sha256-Th9gzCMqodU58sQySNncPPqdjDGrAOH5xwOikAb9LPg=" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
 <script type="module">
 import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';

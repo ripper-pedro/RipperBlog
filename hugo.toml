@@ -3,8 +3,8 @@ title = 'RipperBlog'
 theme = 'lumenveil'
 defaultContentLanguage = 'pt-br'
 defaultContentLanguageInSubdir = false
-disableKinds = ['taxonomy', 'term']
-
+disableKinds = ['taxonomy']
+ignoreErrors = ['error-disable-taxonomy']
 # Search index and feeds
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
@@ -20,7 +20,8 @@ disableKinds = ['taxonomy', 'term']
   pagerSize = 6
 
 [taxonomies]
-  tag = "tags"
+  blog_classification = "blog_classifications"
+  project_classification = "project_classifications"
 
 [markup]
   [markup.highlight]
@@ -40,7 +41,7 @@ disableKinds = ['taxonomy', 'term']
   quality = 85
 
 [params]
-  description = "Personal site of Ripper: projects, writing, and reflections."
+  description = 'My name is Pedro Ripper. Welcome to my little corner of the internet.'
   author = 'Ripper'
   initial = 'R'
   avatar = ''
@@ -90,9 +91,9 @@ disableKinds = ['taxonomy', 'term']
     languageName = 'Português'
     weight = 1
     [languages.pt-br.params]
-      description = 'Site pessoal de Ripper, com projetos, textos e reflexões.'
+      description = 'Meu nome é Pedro Ripper, bem vindo ao meu cantinho na internet.'
   [languages.en]
     languageName = 'English'
     weight = 2
     [languages.en.params]
-      description = 'Personal site of Ripper: projects, writing, and reflections.'
+      description = 'My name is Pedro Ripper. Welcome to my little corner of the internet.'

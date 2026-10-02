@@ -1,15 +1,16 @@
 {{ define "main" }}
 <article class="about-page">
   <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}About{{ else }}Sobre{{ end }}</span></div>
-  <div class="hero__avatar about-page__avatar fade-up">
-    <div class="hero__avatar-ring"></div>
-    {{ with site.Params.avatar }}<img class="hero__avatar-img" src="{{ . | relURL }}" alt="{{ if eq site.Language.Lang "en" }}Avatar of {{ site.Params.author }}{{ else }}Avatar de {{ site.Params.author }}{{ end }}">{{ else }}<div class="hero__avatar-core">{{ site.Params.initial | default "R" }}</div>{{ end }}
-  </div>
-  <div class="about-page__facts">
-    <span>{{ if eq site.Language.Lang "en" }}📍 From Rio de Janeiro{{ else }}📍 Do Rio de Janeiro{{ end }}</span>
-    <span>{{ if eq site.Language.Lang "en" }}🎂 Since 2002{{ else }}🎂 Desde 2002{{ end }}</span>
-  </div>
-  <h1>{{ .Title }}</h1>
-  <div class="about-page__intro prose">{{ .Content }}</div>
+  <div class="about-page__copy"><h1>{{ .Title }}</h1><div class="about-page__intro prose">{{ .Content }}</div></div>
+  <aside class="about-page__profile">
+    <div class="hero__avatar about-page__avatar fade-up">
+      <div class="hero__avatar-ring"></div>
+      {{ with site.Params.avatar }}<img class="hero__avatar-img" src="{{ . | relURL }}" alt="{{ if eq site.Language.Lang "en" }}Avatar of {{ site.Params.author }}{{ else }}Avatar de {{ site.Params.author }}{{ end }}">{{ else }}<div class="hero__avatar-core">{{ site.Params.initial | default "R" }}</div>{{ end }}
+    </div>
+    <div class="about-page__facts">
+      <span>{{ if eq site.Language.Lang "en" }}📍 From Rio de Janeiro{{ else }}📍 Do Rio de Janeiro{{ end }}</span>
+      <span>{{ if eq site.Language.Lang "en" }}🎂 Since 2002{{ else }}🎂 Desde 2002{{ end }}</span>
+    </div>
+  </aside>
 </article>
 {{ end }}

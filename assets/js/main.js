@@ -121,11 +121,15 @@
     }
     if (!searchIndex) return
     const matches = searchIndex.filter((item) => {
-      const haystack = [item.title, item.description, item.content, ...(item.tags || [])].join(' ').toLocaleLowerCase()
+      const haystack = [item.title, item.description, item.content, ...(item.tags || []), ...(item.stack || [])].join(' ').toLocaleLowerCase()
       return haystack.includes(term)
     }).slice(0, 12)
     searchResults.innerHTML = matches.length
-      ? matches.map((item) => `<a class="search-result" href="${escapeHTML(item.url)}"><strong>${escapeHTML(item.title)}</strong><p>${escapeHTML(item.description || t('Sem resumo', 'No summary'))}</p><small>${escapeHTML(item.date)}${item.tags?.length ? ` · ${escapeHTML(item.tags.join(' / '))}` : ''}</small></a>`).join('')
+      ? matches.map((item) => {
+        const labels = [...(item.tags || []), ...(item.stack || [])]
+        const languageOnly = item.languageOnly ? '<span class="language-badge--inline">Portuguese only</span> ' : ''
+        return `<a class="search-result" href="${escapeHTML(item.url)}">${languageOnly}<strong>${escapeHTML(item.title)}</strong><p>${escapeHTML(item.description || t('Sem resumo', 'No summary'))}</p><small>${escapeHTML(item.date)}${labels.length ? ` · ${escapeHTML(labels.join(' / '))}` : ''}</small></a>`
+      }).join('')
       : '<p class="search-empty">' + t('Hmm... Parece que eu ainda não publiquei nada sobre isso.', "Hmm... It seems I haven't published anything about that yet.") + '</p>'
   }
 
@@ -153,6 +157,186 @@
   if (initialQuery && searchInput) {
     searchInput.value = initialQuery
     openSearch()
+  }
+
+  const contentListing = document.querySelector('[data-content-listing]')
+  if (contentListing) {
+    const section = contentListing.dataset.contentListing
+    const filterKey = section === 'blog' ? 'tag' : 'stack'
+    let param = new URLSearchParams(window.location.search)
+    let filterValues = param.getAll(filterKey)
+    const groupView = contentListing.querySelector('[data-classification-view]')
+    const recentView = contentListing.querySelector('[data-recent-view]')
+    const filterGrid = contentListing.querySelector('[data-filter-grid]')
+    const allItemsTemplate = contentListing.querySelector('[data-all-list-items]')
+    const allItems = allItemsTemplate ? Array.from(allItemsTemplate.content.children) : []
+    const originalItems = filterGrid ? Array.from(filterGrid.children).map((item) => item.cloneNode(true)) : []
+    const filterEmpty = contentListing.querySelector('[data-filter-empty]')
+    const recentEmpty = contentListing.querySelector('[data-recent-empty]')
+    const pagination = contentListing.querySelector('.pagination')
+    const portugueseOnlyView = contentListing.querySelector('[data-portuguese-only-view]')
+    const countNode = document.querySelector('[data-list-count]')
+    const viewButtons = contentListing.querySelectorAll('[data-view-button]')
+    const filterToggle = contentListing.querySelector('[data-filter-toggle]')
+    const filterPanel = contentListing.querySelector('[data-filter-panel]')
+    const filterOptions = contentListing.querySelector('[data-filter-options]')
+    let view = filterValues.length || param.get('view') === 'recent' ? 'recent' : 'classifications'
+
+    const getItemFilters = (item) => {
+      try { return JSON.parse(item.dataset[section === 'blog' ? 'tags' : 'stack'] || '[]') } catch { return [] }
+    }
+
+    const getTechnologyIcon = (value) => {
+      const key = String(value).trim().toLowerCase()
+      const icons = {
+        html: 'html5', html5: 'html5', css: 'css3', css3: 'css3',
+        javascript: 'javascript', js: 'javascript', pytorch: 'pytorch', python: 'python',
+        'raspberry pi': 'raspberrypi', raspberrypi: 'raspberrypi', react: 'react', hugo: 'hugo'
+      }
+      return icons[key] || ''
+    }
+
+    const renderFilterOptions = () => {
+      if (!filterOptions) return
+      const values = [...new Set(allItems.flatMap(getItemFilters).map((value) => String(value).trim()).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, currentLang))
+      filterOptions.replaceChildren()
+      values.forEach((value) => {
+        const selected = filterValues.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())
+        const option = document.createElement('button')
+        option.type = 'button'
+        option.className = `content-card__tag-chip content-listing__filter-chip${section === 'projects' ? ' content-card__stack-item' : ''}`
+        option.setAttribute('aria-pressed', String(selected))
+        if (section === 'blog') {
+          const hash = document.createElement('span')
+          hash.textContent = '#'
+          option.append(hash)
+        } else {
+          const icon = getTechnologyIcon(value)
+          if (icon) {
+            const image = document.createElement('img')
+            image.src = `https://cdn.simpleicons.org/${icon}/000000`
+            image.alt = ''
+            image.setAttribute('aria-hidden', 'true')
+            image.loading = 'lazy'
+            option.append(image)
+          }
+        }
+        const text = document.createElement('span')
+        text.textContent = value
+        option.append(text)
+        option.addEventListener('click', () => {
+          const isSelected = option.getAttribute('aria-pressed') === 'true'
+          option.setAttribute('aria-pressed', String(!isSelected))
+          filterValues = Array.from(filterOptions.querySelectorAll('[aria-pressed="true"]')).map((item) => item.dataset.filterValue)
+          param.delete(filterKey)
+          filterValues.forEach((selectedValue) => param.append(filterKey, selectedValue))
+          param.delete('page')
+          if (filterValues.length) {
+            view = 'recent'
+            param.set('view', 'recent')
+          }
+          const query = param.toString()
+          window.history.pushState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`)
+          renderListing()
+        })
+        option.dataset.filterValue = value
+        filterOptions.append(option)
+      })
+    }
+
+    const updateCount = (count) => {
+      if (!countNode) return
+      const suffix = count === 1 ? 'singular' : 'plural'
+      const label = currentLang === 'en'
+        ? countNode.dataset[`${suffix}En`]
+        : countNode.dataset[`${suffix}Pt`]
+      countNode.textContent = `${count} ${label || ''}`.trim()
+    }
+
+    const updatePaginationLinks = () => {
+      if (!pagination) return
+      pagination.querySelectorAll('a[href]').forEach((link) => {
+        const target = new URL(link.href, window.location.href)
+        target.searchParams.set('view', 'recent')
+        link.href = `${target.pathname}${target.search}`
+      })
+    }
+
+    const renderListing = () => {
+      const isRecent = view === 'recent'
+      if (groupView) groupView.hidden = isRecent
+      if (recentView) recentView.hidden = !isRecent
+      viewButtons.forEach((button) => {
+        const selected = button.dataset.viewButton === view
+        button.classList.toggle('is-active', selected)
+        button.setAttribute('aria-pressed', String(selected))
+      })
+      if (filterToggle) {
+        const expanded = filterPanel ? !filterPanel.hidden : false
+        filterToggle.setAttribute('aria-expanded', String(expanded))
+        filterToggle.classList.toggle('is-active', expanded)
+      }
+
+      if (!isRecent) {
+        updateCount(allItems.length)
+        return
+      }
+
+      if (filterValues.length) {
+        if (portugueseOnlyView) portugueseOnlyView.hidden = true
+        const expected = new Set(filterValues.map((value) => value.trim().toLocaleLowerCase()))
+        const matches = allItems.filter((item) => {
+          return getItemFilters(item).some((value) => expected.has(String(value).trim().toLocaleLowerCase()))
+        })
+        if (filterGrid) filterGrid.replaceChildren(...matches.map((item) => item.cloneNode(true)))
+        if (filterEmpty) filterEmpty.hidden = matches.length > 0
+        if (recentEmpty) recentEmpty.hidden = true
+        if (pagination) pagination.hidden = true
+        updateCount(matches.length)
+      } else {
+        if (portugueseOnlyView) portugueseOnlyView.hidden = false
+        if (filterGrid && filterValues.length === 0) filterGrid.replaceChildren(...originalItems.map((item) => item.cloneNode(true)))
+        if (filterEmpty) filterEmpty.hidden = true
+        if (recentEmpty) recentEmpty.hidden = originalItems.length > 0
+        if (pagination) pagination.hidden = false
+        updateCount(allItems.length)
+        updatePaginationLinks()
+      }
+    }
+
+    viewButtons.forEach((button) => button.addEventListener('click', () => {
+      view = button.dataset.viewButton
+      param.delete(filterKey)
+      param.delete('page')
+      filterValues = []
+      if (filterOptions) filterOptions.querySelectorAll('[data-filter-value]').forEach((option) => option.setAttribute('aria-pressed', 'false'))
+      if (view === 'recent') param.set('view', 'recent')
+      else param.delete('view')
+      const query = param.toString()
+      window.history.pushState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`)
+      renderListing()
+    }))
+
+    filterToggle?.addEventListener('click', () => {
+      if (!filterPanel) return
+      filterPanel.hidden = !filterPanel.hidden
+      filterToggle.setAttribute('aria-expanded', String(!filterPanel.hidden))
+      filterToggle.classList.toggle('is-active', !filterPanel.hidden)
+    })
+
+    window.addEventListener('popstate', () => {
+      param = new URLSearchParams(window.location.search)
+      filterValues = param.getAll(filterKey)
+      if (filterOptions) filterOptions.querySelectorAll('[data-filter-value]').forEach((option) => {
+        option.setAttribute('aria-pressed', String(filterValues.some((selected) => selected.toLocaleLowerCase() === option.dataset.filterValue.toLocaleLowerCase())))
+      })
+      view = filterValues.length || param.get('view') === 'recent' ? 'recent' : 'classifications'
+      renderListing()
+    })
+
+    renderFilterOptions()
+    renderListing()
   }
 
   document.querySelectorAll('.prose pre').forEach((pre) => {
@@ -191,9 +375,9 @@
     const copyrightUrl = btn.dataset.copyrightUrl || ''
     const text = [
       `${t('Autor:', 'Author:')}${author}`,
-      `${t('Título do artigo:', 'Article title:')} [${title}](${url})`,
-      `${t('Data de publicação:', 'Published:')}${date}`,
-      `${t('Link do artigo:', 'Article link:')}${url}`,
+      `${t('Título da postagem:', 'Post title:')} [${title}](${url})`,
+      `${t('Data da postagem:', 'Post date:')}${date}`,
+      `${t('Link da postagem:', 'Post link:')}${url}`,
       `${t('Direitos autorais:', 'Copyright notice:')} [${copyright}](${copyrightUrl})`
     ].join('\n')
     try {
@@ -202,7 +386,7 @@
     } catch {
       btn.textContent = t('Falha ao copiar', 'Copy failed')
     }
-    window.setTimeout(() => { btn.textContent = t('Copiar link do artigo', 'Copy article link') }, 1600)
+    window.setTimeout(() => { btn.textContent = t('Copiar link da postagem', 'Copy post link') }, 1600)
   })
 
   const backToTop = document.querySelector('[data-back-to-top]')
@@ -357,8 +541,8 @@
       const allPill = archive.querySelector('[data-archive-all]')
       if (allPill) allPill.classList.toggle('is-active', !year)
       
-      if (titleNode) titleNode.textContent = year ? t(`Artigos de ${year}`, `Articles in ${year}`) : t('Todos os artigos', 'All Articles')
-      if (labelNode) labelNode.textContent = year ? t(`Ano ${year}`, `Year ${year}`) : t('Todos os Artigos', 'All Articles')
+      if (titleNode) titleNode.textContent = year ? t(`Postagens de ${year}`, `Posts in ${year}`) : t('Todas as postagens', 'All posts')
+      if (labelNode) labelNode.textContent = year ? t(`Ano ${year}`, `Year ${year}`) : t('Todas as postagens', 'All posts')
       
       if (emptyNode) emptyNode.hidden = visible !== 0 || !year
       if (pagination) {

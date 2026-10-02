@@ -10,16 +10,46 @@
 		
 		
 		
+			<lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0200</lastBuildDate>
+		
 			<atom:link href="http://localhost:1313/RipperBlog/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Fale comigo</title>
+				<title>Ideias em construção</title>
+				<link>http://localhost:1313/RipperBlog/blog/ideias-em-constru%C3%A7%C3%A3o/</link>
+				<pubDate>Thu, 01 Oct 2026 00:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/RipperBlog/blog/ideias-em-constru%C3%A7%C3%A3o/</guid>
+				<description>&lt;p&gt;Este texto de demonstração ajuda a comparar o cartão de uma postagem com imagem com o cartão sem imagem. A capa representa um espaço tranquilo para organizar ideias antes de transformá-las em palavras.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Projeto de teste</title>
+				<link>http://localhost:1313/RipperBlog/projects/teste/</link>
+				<pubDate>Thu, 01 Oct 2026 00:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/RipperBlog/projects/teste/</guid>
+				<description>&lt;p&gt;Este projeto fictício serve para visualizar como os cartões de projetos aparecem nas listas e nas classificações. A descrição e as tecnologias também ajudam a conferir o espaçamento e a hierarquia do cartão.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Protótipo robótico</title>
+				<link>http://localhost:1313/RipperBlog/projects/prototipo-robotico/</link>
+				<pubDate>Thu, 01 Oct 2026 00:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/RipperBlog/projects/prototipo-robotico/</guid>
+				<description>&lt;p&gt;Este projeto fictício serve como demonstração visual. A imagem de capa ocupa a coluna direita do cartão, enquanto o título, a descrição, a data e o tempo de leitura ficam à esquerda.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Meu Primeiro Post</title>
+				<link>http://localhost:1313/RipperBlog/blog/meu-primeiro-post/</link>
+				<pubDate>Fri, 25 Sep 2026 16:37:05 +0200</pubDate>
+				<guid>http://localhost:1313/RipperBlog/blog/meu-primeiro-post/</guid>
+				<description>&lt;p&gt;Este é um post de teste para mostrar como tags e classificações aparecem no blog. A classificação “Teste” reúne este texto, e a tag “Teste” permite encontrá-lo e filtrá-lo.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Contato</title>
 				<link>http://localhost:1313/RipperBlog/contact/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/RipperBlog/contact/</guid>
 				<description>&lt;p&gt;Quando terminar de preencher, seu app de e-mail vai abrir com a mensagem já pronta pra enviar.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>Sobre mim</title>
+				<title>Sobre</title>
 				<link>http://localhost:1313/RipperBlog/about/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/RipperBlog/about/</guid>

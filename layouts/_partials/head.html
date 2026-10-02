@@ -1,4 +1,4 @@
-{{ $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+{{ $title := cond .IsHome site.Title (printf "%s - %s" site.Title .Title) }}
 {{ $description := .Description | default site.Params.description }}
 {{/*
   Component CSS — explicitly ordered slice (NOT resources.Match, which sorts
@@ -45,11 +45,10 @@
     (resources.Get "css/components/douban-card.css")
     (resources.Get "css/components/sponsor.css")
     (resources.Get "css/components/contact.css")
-    (resources.Get "css/components/liquid-glass-button.css")
     (resources.Get "css/components/monochrome.css")
 }}
-{{/* Keep one stable CSS URL across both language sites to avoid stale language-specific asset links. */}}
-{{ $main := $components | resources.Concat "css/main.css" | minify }}
+{{/* A shared fingerprinted CSS URL across languages invalidates stale browser caches after style changes. */}}
+{{ $main := $components | resources.Concat "css/main.css" | minify | fingerprint }}
 {{ $stylesheets := slice
     $main
 }}

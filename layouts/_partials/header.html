@@ -33,12 +33,17 @@
                 {{ if eq .Language.Lang "pt-br" }}Português{{ else if eq .Language.Lang "pt" }}Português{{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}
               </a>
             {{ end }}
-          {{ else }}
-            {{ range site.Sites }}
-              <a href="{{ .Home.RelPermalink }}">
-                {{ if eq .Language.Lang "pt-br" }}Português{{ else if eq .Language.Lang "pt" }}Português{{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}
-              </a>
+          {{ else if .IsHome }}
+            {{ range hugo.Sites }}
+              {{ if ne .Language.Lang $.Site.Language.Lang }}
+                <a href="{{ .Home.RelPermalink }}">{{ if eq .Language.Lang "pt-br" }}Português{{ else if eq .Language.Lang "en" }}English{{ else }}{{ .Language.LanguageName }}{{ end }}</a>
+              {{ end }}
             {{ end }}
+          {{ else }}
+            <div class="lang-unavailable" data-translation-notice role="status" aria-live="polite" hidden>
+              <span class="lang-unavailable__icon" aria-hidden="true">!</span>
+              <span><strong>Translation unavailable</strong><br>This page is only available in Portuguese.</span>
+            </div>
           {{ end }}
         </div>
       </div>
@@ -81,11 +86,31 @@
     text-align: left;
     transition: background 0.2s ease, color 0.2s ease;
   }
+
+  .lang_dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
   
   .lang_dropdown a:hover {
     background: var(--bg-2);
     color: var(--ink-1);
   }
+
+  .lang_dropdown button:hover { background: var(--bg-2); color: var(--ink-1); }
+  .lang-unavailable { display: flex; align-items: flex-start; gap: 10px; width: 260px; margin: 8px; padding: 12px; border: 1px solid var(--line-strong); border-left: 3px solid var(--ink-1); border-radius: var(--radius-sm, 12px); background: var(--bg-2); color: var(--ink-2); font-size: 0.82rem; line-height: 1.45; }
+  .lang-unavailable[hidden] { display: none; }
+  .lang-unavailable strong { display: inline-block; margin-bottom: 3px; color: var(--ink-1); font-size: 0.86rem; }
+  .lang-unavailable__icon { display: grid; flex: 0 0 20px; width: 20px; height: 20px; place-items: center; border: 1px solid var(--ink-2); border-radius: 50%; color: var(--ink-1); font-weight: 700; }
 
   /* Ajuste de sombra para o modo escuro */
   html[data-theme="dark"] .lang_dropdown {
@@ -100,6 +125,8 @@
     var langDiv = document.getElementById('lang_dropdown');
     if (langDiv.style.display === 'none' || langDiv.style.display === '') {
       langDiv.style.display = 'block';
+      var notice = langDiv.querySelector('[data-translation-notice]');
+      if (notice) notice.hidden = false;
     } else {
       langDiv.style.display = 'none';
     }

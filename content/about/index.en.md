@@ -1,6 +1,6 @@
 ---
-title: 'About me'
-description: 'Ripper’s résumé.'
+title: 'About'
+description: 'Who am I?'
 eyebrow: 'Résumé'
 ---
 

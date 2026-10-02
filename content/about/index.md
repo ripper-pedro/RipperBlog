@@ -1,6 +1,6 @@
 ---
-title: 'Sobre mim'
-description: 'Currículo de Ripper.'
+title: 'Sobre'
+description: 'Quem sou eu?'
 eyebrow: 'Currículo'
 ---
 

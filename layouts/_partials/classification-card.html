@@ -1,0 +1,11 @@
+{{ $page := .page }}{{ $count := .count }}{{ $kind := .kind }}{{ $ptOnly := .portugueseOnly | default false }}
+{{ $cover := "" }}
+{{ with $page.Params.cover }}{{ $image := $page.Resources.GetMatch (printf "%s" .) }}{{ if $image }}{{ $cover = $image.RelPermalink }}{{ else }}{{ $cover = . | relURL }}{{ end }}{{ end }}
+{{ $en := eq site.Language.Lang "en" }}
+{{ $singular := "postagem" }}{{ $plural := "postagens" }}
+{{ if eq $kind "project" }}{{ $singular = "projeto" }}{{ $plural = "projetos" }}{{ end }}
+{{ if $en }}{{ $singular = "post" }}{{ $plural = "posts" }}{{ if eq $kind "project" }}{{ $singular = "project" }}{{ $plural = "projects" }}{{ end }}{{ end }}
+<a class="classification-card{{ if $cover }} classification-card--image{{ end }}" href="{{ $page.RelPermalink }}">
+  {{ if $cover }}<img class="classification-card__image" src="{{ $cover }}" alt="{{ $page.Params.cover_alt | default $page.LinkTitle }}" loading="lazy">{{ end }}
+  <span class="classification-card__body">{{ if $ptOnly }}<span class="classification-card__warning"><span aria-hidden="true">!</span>Portuguese only</span>{{ end }}<strong>{{ $page.LinkTitle }}</strong>{{ with ($page.Params.description | default $page.Description) }}<span class="classification-card__description">{{ . }}</span>{{ end }}<span class="classification-card__count"><span class="classification-card__number">{{ $count }} {{ if eq $count 1 }}{{ $singular }}{{ else }}{{ $plural }}{{ end }}</span><span class="classification-card__view">{{ if $en }}View{{ else }}Conferir{{ end }} <span aria-hidden="true">↗</span></span></span></span>
+</a>

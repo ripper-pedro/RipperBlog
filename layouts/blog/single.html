@@ -6,23 +6,16 @@
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ if eq site.Language.Lang "en" }}{{ .Date.Format "Jan 2, 2006" }}{{ else }}{{ .Date.Format "02/01/2006" }}{{ end }}</time>
       {{ partial "lastmod-meta.html" . }}
       <span>{{ if eq site.Language.Lang "en" }}{{ .ReadingTime }} min read{{ else }}{{ .ReadingTime }} min de leitura{{ end }}</span>
-      <span>{{ .WordCount }} {{ if eq site.Language.Lang "en" }}words{{ else }}palavras{{ end }}</span>
     </div>
+    {{ with .Params.tags }}<div class="content-card__tags article-tags">{{ range . }}<span class="content-card__tag-chip"><span>#</span><span>{{ . }}</span></span>{{ end }}</div>{{ end }}
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="article-deck">{{ . }}</p>{{ end }}
-    {{ with .Params.tags }}<div class="tag-list tag-list--large">{{ range . }}<span>#{{ . }}</span>{{ end }}</div>{{ end }}
   </header>
-  <div class="article-layout">
-    <div class="article-main glass">
-      {{ with .Params.cover }}<figure class="article-cover"><img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async"></figure>{{ end }}
+  <div class="article-layout article-layout--full">
+    <div class="article-main article-main--plain">
+      {{ with .Params.cover }}{{ $cover := . }}{{ with $.Resources.GetMatch (printf "%s" .) }}{{ $cover = .RelPermalink }}{{ else }}{{ $cover = . | relURL }}{{ end }}<figure class="article-cover"><img src="{{ $cover }}" alt="{{ $.Params.cover_alt | default $.Title }}" loading="lazy" decoding="async"></figure>{{ end }}
       <div class="prose">{{ .Content }}</div>
-      <div class="article-share"><span>{{ if eq site.Language.Lang "en" }}Found this post helpful?{{ else }}Este texto foi útil?{{ end }}</span><button class="button button--ghost" type="button" data-copy-link data-author="{{ site.Params.author }}" data-title="{{ .Title }}" data-date="{{ if eq site.Language.Lang "en" }}{{ .Date.Format "Jan 2, 2006" }}{{ else }}{{ .Date.Format "02/01/2006" }}{{ end }}" data-url="{{ .Permalink }}" data-copyright="{{ site.Params.copyright }}" data-copyright-url="{{ site.Params.copyright_url }}">{{ if eq site.Language.Lang "en" }}Copy article link{{ else }}Copiar link do artigo{{ end }}</button></div>
-      <nav class="post-nav" aria-label="{{ if eq site.Language.Lang "en" }}Blog navigation{{ else }}Navegação do blog{{ end }}">
-        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>{{ if eq site.Language.Lang "en" }}Older post{{ else }}Texto anterior{{ end }}</span><strong>{{ .LinkTitle }}</strong></a>{{ else }}<span></span>{{ end }}
-        {{ with .NextInSection }}<a class="post-nav__next" href="{{ .RelPermalink }}"><span>{{ if eq site.Language.Lang "en" }}Newer post{{ else }}Próximo texto{{ end }}</span><strong>{{ .LinkTitle }}</strong></a>{{ end }}
-      </nav>
     </div>
-    {{ partial "toc.html" . }}
   </div>
 </article>
 {{ end }}

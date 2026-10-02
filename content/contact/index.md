@@ -1,6 +1,6 @@
 ---
-title: 'Fale comigo'
-description: 'Me manda um oi! Você pode preencher o formulário aqui em baixo ou usar os links no fim da página.'
+title: 'Contato'
+description: 'Me manda um oi!'
 type: contact
 ---
 

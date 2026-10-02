@@ -31,21 +31,21 @@ try {
   }
 } catch (e) {}
 </script>
-<title>Meus projetos · RipperBlog</title>
+<title>RipperBlog - Projetos</title>
 <meta name="description" content="Algumas coisas que eu desenvolvi, ou tentei...">
 <meta name="author" content="Ripper">
 <link rel="canonical" href="http://localhost:1313/RipperBlog/projects/">
 <link rel="icon" href="/RipperBlog/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/RipperBlog/css/main.min.css" integrity="">
+<link rel="stylesheet" href="/RipperBlog/css/main.min.ef2ab7b1d9e1842f191313ae9cf437467add591801d1de4e40b3c6aedb744094.css" integrity="sha256-7yq3sdnhhC8ZExOunPQ3RnrdWRgB0d5OQLPGrtt0QJQ=">
 
 <link rel="alternate" type="application/rss+xml" title="RipperBlog" href="/RipperBlog/projects/index.xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Meus projetos · RipperBlog">
+<meta property="og:title" content="RipperBlog - Projetos">
 <meta property="og:description" content="Algumas coisas que eu desenvolvi, ou tentei...">
 <meta property="og:url" content="http://localhost:1313/RipperBlog/projects/">
 <meta property="og:site_name" content="RipperBlog"><meta property="og:image" content="http://localhost:1313/RipperBlog/og.svg">
 <meta name="twitter:image" content="http://localhost:1313/RipperBlog/og.svg">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Meus projetos · RipperBlog">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="RipperBlog - Projetos">
 <meta name="twitter:description" content="Algumas coisas que eu desenvolvi, ou tentei...">
 <meta name="twitter:url" content="http://localhost:1313/RipperBlog/projects/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/monokai.min.css">
@@ -55,7 +55,7 @@ try {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   onload="document.querySelectorAll('.prose').forEach(function(t){if(t.closest('[data-katex-rendered]'))return;t.setAttribute('data-katex-rendered','1');if(window.renderMathInElement)renderMathInElement(t,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});});"></script><script type="application/ld+json">
 
-{"@context":"https://schema.org","@type":"WebSite","name":"RipperBlog","url":"http://localhost:1313/RipperBlog/","description":"Site pessoal de Ripper, com projetos, textos e reflexões.","potentialAction":{"@type":"SearchAction","target":"http:\/\/localhost:1313\/RipperBlog\/?q={search_term_string}","query-input":"required name=search_term_string"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"RipperBlog","url":"http://localhost:1313/RipperBlog/","description":"Meu nome é Pedro Ripper, bem vindo ao meu cantinho na internet.","potentialAction":{"@type":"SearchAction","target":"http:\/\/localhost:1313\/RipperBlog\/?q={search_term_string}","query-input":"required name=search_term_string"}}
 
 </script>
 
@@ -159,11 +159,31 @@ try {
     text-align: left;
     transition: background 0.2s ease, color 0.2s ease;
   }
+
+  .lang_dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
   
   .lang_dropdown a:hover {
     background: var(--bg-2);
     color: var(--ink-1);
   }
+
+  .lang_dropdown button:hover { background: var(--bg-2); color: var(--ink-1); }
+  .lang-unavailable { display: flex; align-items: flex-start; gap: 10px; width: 260px; margin: 8px; padding: 12px; border: 1px solid var(--line-strong); border-left: 3px solid var(--ink-1); border-radius: var(--radius-sm, 12px); background: var(--bg-2); color: var(--ink-2); font-size: 0.82rem; line-height: 1.45; }
+  .lang-unavailable[hidden] { display: none; }
+  .lang-unavailable strong { display: inline-block; margin-bottom: 3px; color: var(--ink-1); font-size: 0.86rem; }
+  .lang-unavailable__icon { display: grid; flex: 0 0 20px; width: 20px; height: 20px; place-items: center; border: 1px solid var(--ink-2); border-radius: 50%; color: var(--ink-1); font-weight: 700; }
 
    
   html[data-theme="dark"] .lang_dropdown {
@@ -178,6 +198,8 @@ try {
     var langDiv = document.getElementById('lang_dropdown');
     if (langDiv.style.display === 'none' || langDiv.style.display === '') {
       langDiv.style.display = 'block';
+      var notice = langDiv.querySelector('[data-translation-notice]');
+      if (notice) notice.hidden = false;
     } else {
       langDiv.style.display = 'none';
     }
@@ -193,18 +215,278 @@ try {
 
     <main id="main-content">
       
+
+
+
+
 <section class="page-hero page-hero--listing">
   <div class="breadcrumbs"><a href="/RipperBlog/">Início</a><span>/</span><span>Projetos</span></div>
-  <h1>Meus projetos</h1>
-  <p>Algumas coisas que eu desenvolvi, ou tentei...</p>
+  <h1>Projetos</h1>
   
-  <div class="page-hero__stats"><span>0 projetos</span></div>
+  <div class="page-hero__summary-row"><p>Algumas coisas que eu desenvolvi, ou tentei...</p><div class="page-hero__stats"><span data-list-count data-singular-en="project" data-plural-en="projects" data-singular-pt="projeto" data-plural-pt="projetos">2 projetos</span></div></div>
 </section>
-<section class="section section--compact" data-reveal>
+<section class="section section--compact content-listing" data-content-listing="projects" data-reveal>
+  <nav class="content-listing__views" aria-label="Visualizações dos projetos">
+    <button type="button" class="button button--ghost" data-view-button="classifications">Por classificação</button>
+    <button type="button" class="button button--ghost" data-view-button="recent">Todos</button>
+    <button type="button" class="button button--ghost content-listing__filter-toggle" data-filter-toggle aria-label="Filtrar stacks" aria-expanded="false" aria-controls="projects-filter-options"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.2 7.1v5.2l-3.6 1.8v-7z"/></svg></button>
+  </nav>
+  <div class="content-listing__filter-panel" id="projects-filter-options" data-filter-panel hidden><fieldset><legend>Stacks</legend><div class="content-listing__filter-options" data-filter-options></div></fieldset></div>
+  <div class="content-listing__groups" data-classification-view>
+    <div class="classification-grid">
+      
+      
+        
+        
+          
+          
+
+
+
+
+
+
+<a class="classification-card" href="/RipperBlog/project_classifications/teste/">
+  
+  <span class="classification-card__body"><strong>Teste</strong><span class="classification-card__description">Projetos de demonstração sem capa.</span><span class="classification-card__count"><span class="classification-card__number">1 projeto</span><span class="classification-card__view">Conferir <span aria-hidden="true">↗</span></span></span></span>
+</a>
+
+        
+      
+        
+        
+          
+          
+
+
+
+
+
+
+<a class="classification-card classification-card--image" href="/RipperBlog/project_classifications/rob%C3%B3tica/">
+  <img class="classification-card__image" src="/RipperBlog/project_classifications/rob%C3%B3tica/cover.png" alt="Bancada de trabalho com um pequeno robô e componentes eletrônicos" loading="lazy">
+  <span class="classification-card__body"><strong>Robótica</strong><span class="classification-card__description">Projetos de robótica e sistemas embarcados.</span><span class="classification-card__count"><span class="classification-card__number">1 projeto</span><span class="classification-card__view">Conferir <span aria-hidden="true">↗</span></span></span></span>
+</a>
+
+        
+      
+      
+    </div>
+    
+  </div>
+  <div class="content-listing__recent" data-recent-view hidden>
+    <div class="explore-grid projects-grid" data-filter-grid>
+
+
+
+
+
+
+
   
   
-    <div class="empty-state"><strong>Ainda não há projetos</strong><p>Novos projetos aparecerão aqui.</p></div>
+
+
+
+
+
+<article class="content-card content-card--image" data-year="2026" data-tags="" data-stack="[&#34;PyTorch&#34;,&#34;Python&#34;,&#34;Raspberry Pi&#34;]">
+  <div class="content-card__main content-card__main--tags">
+    <h2><a href="/RipperBlog/projects/prototipo-robotico/">Protótipo robótico</a></h2>
+    <p class="content-card__description">Um protótipo experimental para testar a apresentação de projetos com imagem.</p>
+    <div class="content-card__tags tag-list">
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/pytorch/000000" alt="" aria-hidden="true" loading="lazy">PyTorch</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/python/000000" alt="" aria-hidden="true" loading="lazy">Python</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/raspberrypi/000000" alt="" aria-hidden="true" loading="lazy">Raspberry Pi</span>
+    </div>
+    <div class="content-card__meta"><time datetime="2026-10-01">1 de outubro, 2026</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>1 min de leitura</span></div>
+  </div>
+  <div class="content-card__aside">
+    <img class="content-card__image" src="/RipperBlog/projects/prototipo-robotico/cover.png" alt="Pequeno robô construído como protótipo sobre uma mesa de trabalho" loading="lazy">
+    
+    <a class="content-card__action" href="/RipperBlog/projects/prototipo-robotico/">Conferir <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="content-card" data-year="2026" data-tags="" data-stack="[&#34;HTML&#34;,&#34;CSS&#34;,&#34;JavaScript&#34;]">
+  <div class="content-card__main content-card__main--tags">
+    <h2><a href="/RipperBlog/projects/teste/">Projeto de teste</a></h2>
+    <p class="content-card__description">Um projeto de exemplo para visualizar os cartões de projetos.</p>
+    <div class="content-card__tags tag-list">
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/html5/000000" alt="" aria-hidden="true" loading="lazy">HTML</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/css3/000000" alt="" aria-hidden="true" loading="lazy">CSS</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/javascript/000000" alt="" aria-hidden="true" loading="lazy">JavaScript</span>
+    </div>
+    <div class="content-card__meta"><time datetime="2026-10-01">1 de outubro, 2026</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>1 min de leitura</span></div>
+  </div>
+  <div class="content-card__aside content-card__aside--empty">
+    
+    
+    <a class="content-card__action" href="/RipperBlog/projects/teste/">Conferir <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+</div>
+    
+    
+    <div class="empty-state" data-filter-empty hidden><strong>Nenhum projeto encontrado para estas stacks</strong><p>Tente outra seleção.</p></div>
+    <template data-all-list-items>
+
+
+
+
+
+
+
   
+  
+
+
+
+
+
+<article class="content-card content-card--image" data-year="2026" data-tags="" data-stack="[&#34;PyTorch&#34;,&#34;Python&#34;,&#34;Raspberry Pi&#34;]">
+  <div class="content-card__main content-card__main--tags">
+    <h2><a href="/RipperBlog/projects/prototipo-robotico/">Protótipo robótico</a></h2>
+    <p class="content-card__description">Um protótipo experimental para testar a apresentação de projetos com imagem.</p>
+    <div class="content-card__tags tag-list">
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/pytorch/000000" alt="" aria-hidden="true" loading="lazy">PyTorch</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/python/000000" alt="" aria-hidden="true" loading="lazy">Python</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/raspberrypi/000000" alt="" aria-hidden="true" loading="lazy">Raspberry Pi</span>
+    </div>
+    <div class="content-card__meta"><time datetime="2026-10-01">1 de outubro, 2026</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>1 min de leitura</span></div>
+  </div>
+  <div class="content-card__aside">
+    <img class="content-card__image" src="/RipperBlog/projects/prototipo-robotico/cover.png" alt="Pequeno robô construído como protótipo sobre uma mesa de trabalho" loading="lazy">
+    
+    <a class="content-card__action" href="/RipperBlog/projects/prototipo-robotico/">Conferir <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="content-card" data-year="2026" data-tags="" data-stack="[&#34;HTML&#34;,&#34;CSS&#34;,&#34;JavaScript&#34;]">
+  <div class="content-card__main content-card__main--tags">
+    <h2><a href="/RipperBlog/projects/teste/">Projeto de teste</a></h2>
+    <p class="content-card__description">Um projeto de exemplo para visualizar os cartões de projetos.</p>
+    <div class="content-card__tags tag-list">
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/html5/000000" alt="" aria-hidden="true" loading="lazy">HTML</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/css3/000000" alt="" aria-hidden="true" loading="lazy">CSS</span>
+    
+      
+      
+        
+        
+        
+      
+      <span class="content-card__tag-chip content-card__stack-item"><img src="https://cdn.simpleicons.org/javascript/000000" alt="" aria-hidden="true" loading="lazy">JavaScript</span>
+    </div>
+    <div class="content-card__meta"><time datetime="2026-10-01">1 de outubro, 2026</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>1 min de leitura</span></div>
+  </div>
+  <div class="content-card__aside content-card__aside--empty">
+    
+    
+    <a class="content-card__action" href="/RipperBlog/projects/teste/">Conferir <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+</template>
+  </div>
 </section>
 
     </main>
@@ -242,7 +524,7 @@ try {
   <dialog class="search-dialog" id="search-dialog" data-index="/RipperBlog/index.json" aria-labelledby="search-title" aria-modal="true">
     <div class="search-dialog__head">
       <div>
-        <h2 id="search-title">Pesquisar por publicações</h2>
+        <h2 id="search-title">Pesquisar postagens e projetos</h2>
       </div>
       <button class="icon-button" type="button" data-search-close aria-label="Fechar pesquisa">×</button>
     </div>
@@ -250,13 +532,12 @@ try {
       <span class="sr-only">Termos de pesquisa</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
       <input id="search-input" type="search" placeholder="Digite alguma coisa..." autocomplete="off">
-      <kbd>ESC</kbd>
     </label>
     <div class="search-results" id="search-results" aria-live="polite">
     </div>
   </dialog>
   
-  <script src="/RipperBlog/js/main.min.cf631c7db046ff17db52960651fbb375e9c7c44e85fa63cc15eb6a6c0666d5f9.js" integrity="sha256-z2McfbBG/xfbUpYGUfuzdenHxE6F&#43;mPMFetqbAZm1fk=" defer></script>
+  <script src="/RipperBlog/js/main.min.4e1f60cc232aa1d539f2c43248d9dc3cfa9d8c31ab00e1f9c703a29006fd2cf8.js" integrity="sha256-Th9gzCMqodU58sQySNncPPqdjDGrAOH5xwOikAb9LPg=" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" media="print" onload="this.media='all'">
 <script type="module">
 import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';

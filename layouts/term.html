@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ $isProjects := eq .Data.Plural "project_classifications" }}
+{{ $pages := where .Pages "Draft" false }}
+{{ $pages = $pages.ByDate.Reverse }}
+<section class="page-hero page-hero--listing">
+  <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><a href="{{ if $isProjects }}{{ "projects/" | relLangURL }}{{ else }}{{ "blog/" | relLangURL }}{{ end }}">{{ if $isProjects }}{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}{{ else }}Blog{{ end }}</a><span>/</span><span>{{ .Title }}</span></div>
+  <h1>{{ .Title }}</h1>
+  <div class="page-hero__summary-row">{{ with (.Description | default .Params.description) }}<p>{{ . }}</p>{{ end }}<div class="page-hero__stats"><span class="page-hero__count">{{ len $pages }} {{ if eq (len $pages) 1 }}{{ if $isProjects }}{{ if eq site.Language.Lang "en" }}project{{ else }}projeto{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}post{{ else }}postagem{{ end }}{{ end }}{{ else }}{{ if $isProjects }}{{ if eq site.Language.Lang "en" }}projects{{ else }}projetos{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}posts{{ else }}postagens{{ end }}{{ end }}{{ end }}</span></div></div>
+</section>
+<section class="section section--compact" data-reveal>
+  {{ if $pages }}
+    {{ if $isProjects }}<div class="explore-grid projects-grid">{{ range $pages }}{{ partial "project-card.html" . }}{{ end }}</div>
+    {{ else }}<div class="post-grid">{{ range $pages }}{{ partial "post-card.html" . }}{{ end }}</div>{{ end }}
+  {{ else }}<div class="empty-state"><strong>{{ if eq site.Language.Lang "en" }}Nothing here yet{{ else }}Ainda não há conteúdo aqui{{ end }}</strong><p>{{ if eq site.Language.Lang "en" }}New content in this classification will appear here.{{ else }}Novos conteúdos desta classificação aparecerão aqui.{{ end }}</p></div>{{ end }}
+</section>
+{{ end }}
