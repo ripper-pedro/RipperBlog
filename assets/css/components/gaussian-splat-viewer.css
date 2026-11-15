@@ -1,0 +1,104 @@
+.gaussian-splat {
+  margin: 3rem 0;
+}
+
+.gaussian-splat h2 {
+  margin-bottom: 1rem;
+}
+
+.gaussian-splat__stage {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 62vw, 680px);
+  overflow: hidden;
+  background: #15171c;
+}
+
+.gaussian-splat__frame,
+.gaussian-splat__frame .sse-viewer,
+.gaussian-splat__frame canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.gaussian-splat__placeholder {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: #f0f0f0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.gaussian-splat__frame-button {
+  position: absolute;
+  z-index: 3;
+  top: 0.85rem;
+  right: 0.85rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 999px;
+  background: rgb(16 18 22 / 82%);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.gaussian-splat__frame-button:hover {
+  background: rgb(38 42 50 / 94%);
+}
+
+.gaussian-splat__frame-button[hidden] {
+  display: none;
+}
+
+.gaussian-splat__hint {
+  margin: 0.65rem 0 0;
+  color: var(--ink-3);
+  font-size: 0.88rem;
+}
+
+.project-gallery {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.project-gallery--grid,
+.project-gallery--pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-gallery--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-gallery figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+.project-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article .article-main .prose .project-gallery img {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 640px) {
+  .project-gallery--grid,
+  .project-gallery--pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

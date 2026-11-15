@@ -89,6 +89,9 @@ Claro que eu ainda acesso o Instagram e o YouTube, só que de um jeito alternati
 
 Felizmente, temos uma boa notícia: [o Orkut anunciou que vai voltar](https://orkut.com/)! O problema é que ainda não tem data divulgada... Então, até termos uma rede social de verdade novamente, a solução provisória é usar essas gambiarras ou nos isolarmos nas montanhas como monges.
 
-Atualização de 9 de outubro
+#### Atualização de 9 de outubro de 2026
 Ontem, o Orkut lançou uma petição mundial para criar sua rede social novamente, e em menos de 24 horas já tem quase 300 mil assinaturas. Não surpreendente, 70% delas vêm do Brasil. Deixa a sua lá também: [orkut.com](https://orkut.com/)!
+
+
+
 

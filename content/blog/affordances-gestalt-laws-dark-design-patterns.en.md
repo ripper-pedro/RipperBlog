@@ -88,4 +88,6 @@ My survival tactic has been radical: I do not have any apps containing short vid
 But the dependency is real, so I still access Instagram and YouTube, just with strict rules. I do not use just any browser on my phone; I use Firefox. It lets me download plug-ins to block specific URLs (that way I use Instagram without access to the Reels tab and YouTube without the Shorts page) and hide sponsored or suggested posts. With this trick, I only see what the people I actually follow are posting, and my feed has an end. And do you know what is most frightening? Even with short and suggested videos blocked, I still spend more time than I should on these platforms, which only proves how incredibly effective and insidious the dark pattern is.
 
 Fortunately, the real and definitive solution is on its way: [Orkut announced it is coming back!](https://orkut.com/) The problem is that there is still no announced date... So, until we have a real social network again, our only temporary solution is to use these workarounds or isolate ourselves in the mountains like monks.
+#### Update from October 9, 2026
 
+Yesterday, Orkut launched a worldwide petition to bring its social network back, and in less than 24 hours it already had almost 300,000 signatures. Not surprisingly, 70% of them came from Brazil. Leave yours there too: [orkut.com](https://orkut.com/)!

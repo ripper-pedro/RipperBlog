@@ -2,119 +2,171 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:14124/RipperBlog/en/projects/</loc>
-    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/project_classifications/artificial-intelligence/</loc>
+    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/projects/"
+                href="https://ripper-pedro.github.io/RipperBlog/project_classifications/intelig%C3%AAncia-artificial/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/projects/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/project_classifications/artificial-intelligence/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/</loc>
-    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/chatbot-in-unity/</loc>
+    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/chatbot-in-unity/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/chatbot-in-unity/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/projects/personal-website/</loc>
-    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/</loc>
+    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/projects/personal-website/"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/projects/personal-website/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/project_classifications/web-development/</loc>
-    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/</loc>
+    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/project_classifications/desenvolvimento-web/"
+                href="https://ripper-pedro.github.io/RipperBlog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/project_classifications/web-development/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/blog/affordances-gestalt-laws-and-dark-patterns/</loc>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/project_classifications/3d-rendering/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/project_classifications/renderiza%C3%A7%C3%A3o-3d/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/project_classifications/3d-rendering/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/gaussian-splatting-reconstructions/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/gaussian-splatting-reconstructions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/gaussian-splatting-reconstructions/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/personal-website/</loc>
+    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/personal-website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/personal-website/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/project_classifications/web-development/</loc>
+    <lastmod>2026-10-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/project_classifications/desenvolvimento-web/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/project_classifications/web-development/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog/affordances-gestalt-laws-and-dark-patterns/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/"
+                href="https://ripper-pedro.github.io/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/blog/affordances-gestalt-laws-and-dark-patterns/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/blog/affordances-gestalt-laws-and-dark-patterns/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/blog/</loc>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/blog/"
+                href="https://ripper-pedro.github.io/RipperBlog/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/blog/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/blog/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/blog_classifications/human-computer-interaction/</loc>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/blog_classifications/human-computer-interaction/</loc>
     <lastmod>2026-10-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/blog_classifications/intera%C3%A7%C3%A3o-humano-computador/"
+                href="https://ripper-pedro.github.io/RipperBlog/blog_classifications/intera%C3%A7%C3%A3o-humano-computador/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/blog_classifications/human-computer-interaction/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/blog_classifications/human-computer-interaction/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/about/</loc>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/about/"
+                href="https://ripper-pedro.github.io/RipperBlog/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/about/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/about/"
                 />
   </url><url>
-    <loc>http://localhost:14124/RipperBlog/en/contact/</loc>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/contact/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:14124/RipperBlog/contact/"
+                href="https://ripper-pedro.github.io/RipperBlog/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:14124/RipperBlog/en/contact/"
+                href="https://ripper-pedro.github.io/RipperBlog/en/contact/"
                 />
   </url>
 </urlset>

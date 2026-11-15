@@ -2,16 +2,16 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	
 		<sitemap>
-			<loc>http://localhost:14124/RipperBlog/pt-br/sitemap.xml</loc>
+			<loc>https://ripper-pedro.github.io/RipperBlog/pt-br/sitemap.xml</loc>
 			
-				<lastmod>2026-10-06T00:00:00+00:00</lastmod>
+				<lastmod>2026-11-15T00:00:00+00:00</lastmod>
 			
 		</sitemap>
 	
 		<sitemap>
-			<loc>http://localhost:14124/RipperBlog/en/sitemap.xml</loc>
+			<loc>https://ripper-pedro.github.io/RipperBlog/en/sitemap.xml</loc>
 			
-				<lastmod>2026-10-06T00:00:00+00:00</lastmod>
+				<lastmod>2026-11-15T00:00:00+00:00</lastmod>
 			
 		</sitemap>
 	

@@ -1,0 +1,14 @@
+{{ $id := .Get "id" }}
+{{ $source := .Get "src" | relURL }}
+{{ $hasSource := os.FileExists (printf "static/%s" (.Get "src")) }}
+<section class="gaussian-splat" aria-labelledby="splat-title-{{ $id }}">
+  <h2 id="splat-title-{{ $id }}">{{ .Get "title" }}</h2>
+  <div class="gaussian-splat__stage">
+    <div class="gaussian-splat__frame" data-splat-viewer data-splat-id="{{ $id }}" data-source="{{ $source }}" data-splat-ready="{{ $hasSource }}"></div>
+    <div class="gaussian-splat__placeholder" data-splat-status role="status">
+      {{ if $hasSource }}{{ if eq site.Language.Lang "en" }}Loading 3D model…{{ else }}Carregando modelo 3D…{{ end }}{{ else }}{{ if eq site.Language.Lang "en" }}The PLY model will appear here once it has been added.{{ else }}O modelo PLY aparecerá aqui assim que for adicionado.{{ end }}{{ end }}
+    </div>
+    <button class="gaussian-splat__frame-button" type="button" data-splat-frame hidden>Reset</button>
+  </div>
+  <p class="gaussian-splat__hint">{{ if eq site.Language.Lang "en" }}Left-drag to orbit the model; right-drag to move it. Click a point on the model to focus on it. Use the scroll wheel to zoom.{{ else }}Arraste com o botão esquerdo para orbitar o modelo e com o botão direito para movê-lo. Clique em um ponto do modelo para focar nele. Use a roda do mouse para aproximar ou afastar.{{ end }}</p>
+</section>

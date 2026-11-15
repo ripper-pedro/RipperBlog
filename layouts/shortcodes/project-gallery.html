@@ -1,0 +1,9 @@
+{{- $images := split (.Get "images") "|" -}}
+{{- $alts := split (.Get "alts") "|" -}}
+{{- $folder := .Get "folder" | default "gaussian-splatting-computer" -}}
+<div class="project-gallery project-gallery--{{ .Get `layout` }}">
+  {{- range $index, $image := $images }}
+    {{- $src := printf "images/%s/%s" $folder $image | relURL }}
+    <figure><img src="{{ $src }}" alt="{{ index $alts $index }}" loading="lazy" decoding="async"></figure>
+  {{- end }}
+</div>

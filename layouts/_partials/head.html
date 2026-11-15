@@ -46,6 +46,7 @@
     (resources.Get "css/components/sponsor.css")
     (resources.Get "css/components/contact.css")
     (resources.Get "css/components/monochrome.css")
+    (resources.Get "css/components/gaussian-splat-viewer.css")
 }}
 {{/* A shared fingerprinted CSS URL across languages invalidates stale browser caches after style changes. */}}
 {{ $main := $components | resources.Concat "css/main.css" | minify | fingerprint }}

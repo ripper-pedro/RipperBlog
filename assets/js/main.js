@@ -190,7 +190,7 @@
       const key = String(value).trim().toLowerCase()
       const icons = {
         html: 'html5', html5: 'html5', css: 'css3', css3: 'css3',
-        javascript: 'javascript', js: 'javascript', pytorch: 'pytorch', python: 'python',
+        javascript: 'javascript', js: 'javascript', pytorch: 'pytorch', unity: 'unity', python: 'python',
         'raspberry pi': 'raspberrypi', raspberrypi: 'raspberrypi', react: 'react', hugo: 'hugo',
         markdown: 'markdown-mark'
       }

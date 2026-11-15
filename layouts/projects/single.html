@@ -8,6 +8,7 @@
       {{ else if or (eq $label "css") (eq $label "css3") }}{{ $icon = "css3" }}
       {{ else if or (eq $label "javascript") (eq $label "js") }}{{ $icon = "javascript" }}
       {{ else if eq $label "pytorch" }}{{ $icon = "pytorch" }}
+      {{ else if eq $label "unity" }}{{ $icon = "unity" }}
       {{ else if eq $label "python" }}{{ $icon = "python" }}
       {{ else if or (eq $label "raspberry pi") (eq $label "raspberrypi") }}{{ $icon = "raspberrypi" }}
       {{ else if eq $label "react" }}{{ $icon = "react" }}
@@ -23,6 +24,11 @@
     </div>
   </header>
   <div class="article-layout article-layout--full"><div class="article-main article-main--plain"><div class="prose">{{ .Content }}</div>
+    {{ if eq .TranslationKey "gaussian-splatting-reconstructions" }}
+      {{ $splatJS := resources.Get "js/gaussian-splat-viewer.js" | minify | fingerprint }}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@playcanvas/supersplat-viewer@1.43.2/public/index.css">
+      <script type="module" src="{{ $splatJS.RelPermalink }}"></script>
+    {{ end }}
   </div></div>
   <footer class="article-return"><a class="button button--ghost" href="{{ "projects/" | relLangURL }}">← {{ if eq site.Language.Lang "en" }}Back to projects{{ else }}Voltar para os projetos{{ end }}</a></footer>
 </article>
