@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sun, 15 Nov 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://ripper-pedro.github.io/RipperBlog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Ensinando uma &#34;aranha&#34; a andar</title>
+				<link>https://ripper-pedro.github.io/RipperBlog/projects/teaching-spider-to-walk/</link>
+				<pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+				<guid>https://ripper-pedro.github.io/RipperBlog/projects/teaching-spider-to-walk/</guid>
+				<description>&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/nofeet.png&#34; alt=&#34;Modelo original do crawler do Unity ML Agents, sem pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/feet.png&#34; alt=&#34;Modelo crawler modificado com pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/training.gif&#34; alt=&#34;Início do treinamento do crawler modificado&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/trainingbetter.gif&#34; alt=&#34;Progresso do treinamento do crawler modificado&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/nofeet.gif&#34; alt=&#34;Animação de demonstração do crawler original, sem pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/feet.gif&#34; alt=&#34;Animação de demonstração do crawler modificado com pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--standard&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/printlog.jpeg&#34; alt=&#34;Captura do trecho final do log de treinamento&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;</description>
+			</item>
 			<item>
 				<title>Implementando um chatbot no Unity</title>
 				<link>https://ripper-pedro.github.io/RipperBlog/projects/chatbot-in-unity/</link>

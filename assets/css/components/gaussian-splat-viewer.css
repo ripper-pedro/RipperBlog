@@ -79,6 +79,12 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+.project-gallery--standard {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 800px);
+  margin-inline: auto;
+}
+
 .project-gallery figure {
   margin: 0;
   overflow: hidden;
@@ -102,3 +108,4 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+

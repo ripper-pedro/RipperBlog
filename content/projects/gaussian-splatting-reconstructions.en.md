@@ -13,7 +13,7 @@ Below is an example of a reconstruction I made of myself for a practical assignm
 
 {{< gaussian-splat-viewer id="avatar" src="splats/avatar-project.ply" >}}
 
-But today we are going to focus on the step&#45;by&#45;step process I followed to reconstruct my computer. I should warn you in advance that the result did not turn out well, for several reasons:
+But today we are going to focus on the step-by-step process I followed to reconstruct my computer. I should warn you in advance that the result did not turn out well, for several reasons:
 
 - The case is entirely black and full of smooth surfaces or repetitive patterns, which makes it difficult to distinguish its points;
 - It also has many, many reflective and/or transparent parts, especially the acrylic &#34;windows&#34;;
@@ -28,7 +28,7 @@ With those caveats out of the way, let us get to what matters. The first step wa
 Next, I put these photos into COLMAP and followed the instructions for a dense reconstruction, since the sparse one had returned many points for the floor and very few for the computer itself. Below is a screenshot of the point cloud with the calculated camera positions:
 {{< project-gallery layout="single" images="computer-colmap.png" alts="COLMAP point cloud with the estimated camera positions around the computer" >}}
 
-Before running the GS training, I used an *open&#45;source* segmentation model (*BiRefNet*) to create masks of only my computer in the photos. I did not use it earlier because the details on the floor helped the algorithm calculate the camera positions and relate the images to one another. But now we want the rendering to show only the computer, so we should ignore the background. Below is an example of the masks and the filtered point cloud, with only the points that were projected inside them:
+Before running the GS training, I used an *open-source* segmentation model (*BiRefNet*) to create masks of only my computer in the photos. I did not use it earlier because the details on the floor helped the algorithm calculate the camera positions and relate the images to one another. But now we want the rendering to show only the computer, so we should ignore the background. Below is an example of the masks and the filtered point cloud, with only the points that were projected inside them:
 {{< project-gallery layout="pair" images="computer-mask-preview.jpg|computer-mask.png" alts="Preview of the segmentation mask applied to the computer case|Binary mask of the computer case, in white, on a black background" >}}
 {{< project-gallery layout="single" images="computer-filtered-cloud.png" alts="Filtered point cloud showing only the computer case" >}}
 

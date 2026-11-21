@@ -23,7 +23,7 @@
       {{ with .Params.repository_url }}<a class="button button--ghost" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ if eq site.Language.Lang "en" }}Source code{{ else }}Código-fonte{{ end }} ↗</a>{{ end }}
     </div>
   </header>
-  <div class="article-layout article-layout--full"><div class="article-main article-main--plain"><div class="prose">{{ .Content }}</div>
+  <div class="article-layout article-layout--full"><div class="article-main article-main--plain"><div class="prose">{{ with .Content }}{{ . }}{{ end }}</div>
     {{ if eq .TranslationKey "gaussian-splatting-reconstructions" }}
       {{ $splatJS := resources.Get "js/gaussian-splat-viewer.js" | minify | fingerprint }}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@playcanvas/supersplat-viewer@1.43.2/public/index.css">

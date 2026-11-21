@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ripper-pedro.github.io/RipperBlog/en/project_classifications/artificial-intelligence/</loc>
-    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -13,6 +13,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ripper-pedro.github.io/RipperBlog/en/project_classifications/artificial-intelligence/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/</loc>
+    <lastmod>2026-11-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/</loc>
+    <lastmod>2026-11-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/"
+                />
+  </url><url>
+    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/teaching-spider-to-walk/</loc>
+    <lastmod>2026-11-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://ripper-pedro.github.io/RipperBlog/projects/teaching-spider-to-walk/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ripper-pedro.github.io/RipperBlog/en/projects/teaching-spider-to-walk/"
                 />
   </url><url>
     <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/chatbot-in-unity/</loc>
@@ -26,32 +65,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ripper-pedro.github.io/RipperBlog/en/projects/chatbot-in-unity/"
-                />
-  </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/projects/</loc>
-    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/projects/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/projects/"
-                />
-  </url><url>
-    <loc>https://ripper-pedro.github.io/RipperBlog/en/</loc>
-    <lastmod>2026-11-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="https://ripper-pedro.github.io/RipperBlog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ripper-pedro.github.io/RipperBlog/en/"
                 />
   </url><url>
     <loc>https://ripper-pedro.github.io/RipperBlog/en/project_classifications/3d-rendering/</loc>
