@@ -1,9 +1,10 @@
 ---
-title: 'Teaching a "spider" to walk'
+title: 'Teaching a "spider" to walk in Unity'
 date: '2026-11-21'
 translationKey: 'teaching-spider-to-walk'
-description: 'Playing around with Reinforcement Learning (or Pavlov Conditioning, I guess) in Unity'
+description: 'Playing around with Reinforcement Learning (or Pavlov Conditioning, I guess).'
 project_classifications: ['Artificial Intelligence']
+stack: [Unity, C#, PyTorch, Reinforcement Learning]
 ---
 
 {{< project-gallery layout="pair" folder="teaching-spider-to-walk" images="nofeet.png|feet.png" alts="Original Unity ML Agents crawler model, without feet|Crawler model modified with feet" >}}

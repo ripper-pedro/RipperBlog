@@ -10,6 +10,30 @@
   {{ end }}
 {{ end }}
 {{ $terms := site.Taxonomies.project_classifications.ByCount.Reverse }}
+{{ $classificationGroups := slice }}
+{{ range $terms }}
+  {{ $groupPages := where .Page.Pages "Draft" false }}
+  {{ if gt (len $groupPages) 0 }}
+    {{ $latest := index ($groupPages.ByDate.Reverse) 0 }}
+    {{ $classificationGroups = $classificationGroups | append (dict "page" .Page "count" (len $groupPages) "latest" $latest.Date.Unix "portugueseOnly" false) }}
+  {{ end }}
+{{ end }}
+{{ if eq site.Language.Lang "en" }}
+  {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
+  {{ with index $ptSites 0 }}
+    {{ range .Taxonomies.project_classifications.ByCount.Reverse }}
+      {{ $onlyPages := slice }}
+      {{ range .Page.Pages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $onlyPages = $onlyPages | append . }}{{ end }}{{ end }}
+      {{ $englishCount := 0 }}
+      {{ $termName := lower .Page.Title }}
+      {{ range $projects }}{{ range .Params.project_classifications }}{{ if eq (lower .) $termName }}{{ $englishCount = add $englishCount 1 }}{{ end }}{{ end }}{{ end }}
+      {{ if and (gt (len $onlyPages) 0) (eq $englishCount 0) }}
+        {{ $latest := index (sort $onlyPages "Date" "desc") 0 }}
+        {{ $classificationGroups = $classificationGroups | append (dict "page" .Page "count" (len $onlyPages) "latest" $latest.Date.Unix "portugueseOnly" true) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 <section class="page-hero page-hero--listing">
   <div class="breadcrumbs"><a href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "en" }}Home{{ else }}Início{{ end }}</a><span>/</span><span>{{ if eq site.Language.Lang "en" }}Projects{{ else }}Projetos{{ end }}</span></div>
   <h1>{{ .Title }}</h1>
@@ -25,26 +49,9 @@
   <div class="content-listing__filter-panel" id="projects-filter-options" data-filter-panel hidden><fieldset><legend>Stacks</legend><div class="content-listing__filter-options" data-filter-options></div></fieldset></div>
   <div class="content-listing__groups" data-classification-view>
     <div class="classification-grid">
-      {{ $groupCount := 0 }}
-      {{ range $terms }}
-        {{ $groupPages := where .Page.Pages "Draft" false }}
-        {{ if gt (len $groupPages) 0 }}
-          {{ $groupCount = add $groupCount 1 }}
-          {{ partial "classification-card.html" (dict "page" .Page "count" (len $groupPages) "kind" "project") }}
-        {{ end }}
-      {{ end }}
-      {{ if eq site.Language.Lang "en" }}
-        {{ $ptSites := where hugo.Sites "Language.Lang" "eq" "pt-br" }}
-        {{ with index $ptSites 0 }}
-          {{ range .Taxonomies.project_classifications.ByCount.Reverse }}
-            {{ $onlyCount := 0 }}
-            {{ range .Page.Pages }}{{ if and (not .Draft) (not .IsTranslated) }}{{ $onlyCount = add $onlyCount 1 }}{{ end }}{{ end }}
-            {{ $englishCount := 0 }}
-            {{ $termName := lower .Page.Title }}
-            {{ range $projects }}{{ range .Params.project_classifications }}{{ if eq (lower .) $termName }}{{ $englishCount = add $englishCount 1 }}{{ end }}{{ end }}{{ end }}
-            {{ if and (gt $onlyCount 0) (eq $englishCount 0) }}{{ $groupCount = add $groupCount 1 }}{{ partial "classification-card.html" (dict "page" .Page "count" $onlyCount "kind" "project" "portugueseOnly" true) }}{{ end }}
-          {{ end }}
-        {{ end }}
+      {{ $groupCount := len $classificationGroups }}
+      {{ range sort $classificationGroups "latest" "desc" }}
+        {{ partial "classification-card.html" (dict "page" .page "count" .count "kind" "project" "portugueseOnly" .portugueseOnly) }}
       {{ end }}
     </div>
     {{ if and (eq (len $projects) 0) (eq (len $portugueseOnly) 0) }}

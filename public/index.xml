@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>RipperBlog</title>
-		<link>https://ripper-pedro.github.io/RipperBlog/</link>
+		<link>http://localhost:1313/RipperBlog/</link>
 		<description>Recent content on RipperBlog</description>
 		<generator>Hugo</generator>
 		<language>pt-br</language>
@@ -12,54 +12,54 @@
 		
 			<lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://ripper-pedro.github.io/RipperBlog/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/RipperBlog/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Ensinando uma &#34;aranha&#34; a andar</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/projects/teaching-spider-to-walk/</link>
+				<title>Ensinando uma &#34;aranha&#34; a andar no Unity</title>
+				<link>http://localhost:1313/RipperBlog/projects/teaching-spider-to-walk/</link>
 				<pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/projects/teaching-spider-to-walk/</guid>
-				<description>&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/nofeet.png&#34; alt=&#34;Modelo original do crawler do Unity ML Agents, sem pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/feet.png&#34; alt=&#34;Modelo crawler modificado com pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/training.gif&#34; alt=&#34;Início do treinamento do crawler modificado&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/trainingbetter.gif&#34; alt=&#34;Progresso do treinamento do crawler modificado&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--pair&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/nofeet.gif&#34; alt=&#34;Animação de demonstração do crawler original, sem pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/feet.gif&#34; alt=&#34;Animação de demonstração do crawler modificado com pés&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;div class=&#34;project-gallery project-gallery--standard&#34;&gt;&#xA;    &lt;figure&gt;&lt;img src=&#34;https://ripper-pedro.github.io/RipperBlog/images/teaching-spider-to-walk/printlog.jpeg&#34; alt=&#34;Captura do trecho final do log de treinamento&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/figure&gt;&#xA;&lt;/div&gt;</description>
+				<guid>http://localhost:1313/RipperBlog/projects/teaching-spider-to-walk/</guid>
+				<description>&lt;p&gt;A engenharia adora se inspirar em conceitos da biologia, mesmo que, frequentemente, essa inspiração seja mais para usar um nome meramente como uma metáfora para sua maneira de funcionar, em vez de tentar reproduzir de fato seus mecanismos — vide os &amp;quot;neurônios&amp;quot; e as &amp;quot;redes neurais&amp;quot;. Uma técnica que ficou na moda recentemente inverte essa lógica: ela imita um conceito biológico antigo e não usa seu nome como marketing. Estou falando do Aprendizado por Reforço, o jeito com que ensinamos os robôs modernos a se moverem e interagirem com o mundo, em vez de usar a teoria de controle clássica. Essencialmente, funciona como o cachorro de Pavlov: quando o modelo chega mais perto de realizar uma tarefa do jeito que você quer, ele ganha um biscoito, e quando erra, leva choque.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Implementando um chatbot no Unity</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/projects/chatbot-in-unity/</link>
+				<link>http://localhost:1313/RipperBlog/projects/chatbot-in-unity/</link>
 				<pubDate>Sun, 15 Nov 2026 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/projects/chatbot-in-unity/</guid>
+				<guid>http://localhost:1313/RipperBlog/projects/chatbot-in-unity/</guid>
 				<description>&lt;p&gt;Esse foi rápido. Acho que a parte mais demorada aqui foi esperar o Unity criar o arquivo do projeto, mais do que fazer o chatbot em si. De resto, eu só tive que baixar o repositório LLMUnity, quebrar a cabeça com a hierarquia de cada elemento do chat, escolher um modelo (Qwen 3.5 0.8B), ter memória RAM sobrando e copiar o script em C# que conecta a UI à IA.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>Reconstruindo (ou tentando) cenas com Gaussian Splatting</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/projects/gaussian-splatting-reconstructions/</link>
+				<title>Reconstruindo cenas com Gaussian Splatting</title>
+				<link>http://localhost:1313/RipperBlog/projects/gaussian-splatting-reconstructions/</link>
 				<pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/projects/gaussian-splatting-reconstructions/</guid>
+				<guid>http://localhost:1313/RipperBlog/projects/gaussian-splatting-reconstructions/</guid>
 				<description>&lt;p&gt;Um nome que ficou na moda recentemente é o &amp;quot;&lt;em&gt;Gaussian Splatting&lt;/em&gt;&amp;quot;. Trata-se de uma técnica de &lt;em&gt;novel view synthesis&lt;/em&gt;, ou seja, ela permite reconstruir uma cena 3D a partir de algumas fotos de diferentes ângulos de um objeto-alvo, criando imagens desse objeto de ângulos completamente novos, que nunca foram fotografados originalmente. O nome &amp;quot;&lt;em&gt;Gaussian&lt;/em&gt;&amp;quot; vem das primitivas gaussianas, que são elipsoides 3D com propriedades como cor, opacidade e posição. Já o nome &amp;quot;&lt;em&gt;Splatting&lt;/em&gt;&amp;quot; vem da capacidade dessas gaussianas de se dividir ou duplicar para serem projetadas na tela em 2D.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>O site em que você está navegando agora</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/projects/personal-website/</link>
+				<link>http://localhost:1313/RipperBlog/projects/personal-website/</link>
 				<pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/projects/personal-website/</guid>
+				<guid>http://localhost:1313/RipperBlog/projects/personal-website/</guid>
 				<description>&lt;p&gt;Eu não criei este site por pura e espontânea vontade. Inicialmente, só o fiz porque era parte da minha avaliação em uma disciplina de mestrado. Esse método, no qual eu devo postar meus &amp;quot;deveres de casa&amp;quot; e projetos em um site pessoal próprio, foi inspirado no curso &amp;quot;Como Criar (Quase) Qualquer Coisa&amp;quot; de um professor do MIT. A &lt;a href=&#34;https://youtu.be/aPbJmYCSCgA&#34;&gt;história do curso&lt;/a&gt; é bem interessante, já que ele deu origem à primeira FabLab do mundo. Hoje em dia, diversas faculdades de engenharia têm uma — incluindo a minha, aqui na França, mas eu só pisei lá uma única vez. Enfim&amp;hellip; Recentemente, esse mesmo professor lançou um novo curso: &amp;quot;&lt;em&gt;How to AI (Almost) Anything&lt;/em&gt;&amp;quot; ou &amp;quot;como vibe-codar&amp;quot;, talvez. Apesar de eu não ter assistido a uma única aula, acredito que elas tenham a ver com o que eu fiz aqui.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Affordances, Leis da Gestalt e Dark Patterns</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/</link>
+				<link>http://localhost:1313/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/</link>
 				<pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/</guid>
+				<guid>http://localhost:1313/RipperBlog/blog/affordances-leis-da-gestalt-e-dark-patterns/</guid>
 				<description>&lt;p&gt;Com um nome tão rebuscado quanto &amp;quot;Interação Humano-Computador&amp;quot;, quem escuta pela primeira vez pode até pensar que se trata de &lt;em&gt;sci-fi&lt;/em&gt; ou futurologia. O conceito, porém, é bem direto: IHC é o estudo de como humanos interagem com computadores. É, eu disse que era direto&amp;hellip; Mas isso não exclui o fato de que a área ainda engloba sistemas como o J.A.R.V.I.S. do Homem de Ferro. Afinal, o Tony Stark é um humano e sua armadura é um computador, não? Apesar de estarmos caminhando para uma realidade na qual cada um também terá sua própria IA pessoal (vide o novo Muse da Meta) em um futuro não tão distante — oras, estou fazendo um mestrado justamente em Realidade Virtual e Aumentada — o importante, em se tratando de IHC, é manter o pé no chão, porque o que se busca é a intuitividade.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Contato</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/contact/</link>
+				<link>http://localhost:1313/RipperBlog/contact/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/contact/</guid>
+				<guid>http://localhost:1313/RipperBlog/contact/</guid>
 				<description>&lt;p&gt;Quando terminar de preencher, seu app de e-mail vai abrir com a mensagem já pronta pra enviar.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Sobre</title>
-				<link>https://ripper-pedro.github.io/RipperBlog/about/</link>
+				<link>http://localhost:1313/RipperBlog/about/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://ripper-pedro.github.io/RipperBlog/about/</guid>
+				<guid>http://localhost:1313/RipperBlog/about/</guid>
 				<description>&lt;p&gt;Esta página vai ser meu currículo.&lt;/p&gt;</description>
 			</item>
 	</channel>

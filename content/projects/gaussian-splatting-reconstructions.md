@@ -1,10 +1,10 @@
 ---
-title: 'Reconstruindo (ou tentando) cenas com Gaussian Splatting'
+title: 'Reconstruindo cenas com Gaussian Splatting'
 date: '2026-11-14'
 translationKey: 'gaussian-splatting-reconstructions'
 description: 'Voilà: versões 3D de mim e do meu computador.'
 project_classifications: ['Renderização 3D']
-stack: [Unity, PyTorch, Gaussian Splatting]
+stack: [Python, Gaussian Splatting]
 ---
 
 Um nome que ficou na moda recentemente é o &#34;*Gaussian Splatting*&#34;. Trata-se de uma técnica de *novel view synthesis*, ou seja, ela permite reconstruir uma cena 3D a partir de algumas fotos de diferentes ângulos de um objeto-alvo, criando imagens desse objeto de ângulos completamente novos, que nunca foram fotografados originalmente. O nome &#34;*Gaussian*&#34; vem das primitivas gaussianas, que são elipsoides 3D com propriedades como cor, opacidade e posição. Já o nome &#34;*Splatting*&#34; vem da capacidade dessas gaussianas de se dividir ou duplicar para serem projetadas na tela em 2D.

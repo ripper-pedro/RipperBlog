@@ -1,1 +1,1 @@
-{{ if eq . "markdown-mark" }}https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg{{ else }}https://cdn.simpleicons.org/{{ . }}/000000{{ end }}
+{{ if eq . "markdown-mark" }}https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg{{ else if eq . "csharp" }}https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-plain.svg{{ else }}https://cdn.simpleicons.org/{{ . }}/000000{{ end }}

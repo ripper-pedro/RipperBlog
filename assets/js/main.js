@@ -190,7 +190,7 @@
       const key = String(value).trim().toLowerCase()
       const icons = {
         html: 'html5', html5: 'html5', css: 'css3', css3: 'css3',
-        javascript: 'javascript', js: 'javascript', pytorch: 'pytorch', unity: 'unity', python: 'python',
+        javascript: 'javascript', js: 'javascript', 'c#': 'csharp', pytorch: 'pytorch', unity: 'unity', python: 'python',
         'raspberry pi': 'raspberrypi', raspberrypi: 'raspberrypi', react: 'react', hugo: 'hugo',
         markdown: 'markdown-mark'
       }
@@ -202,7 +202,14 @@
       const values = [...new Set(allItems.flatMap(getItemFilters).map((value) => String(value).trim()).filter(Boolean))]
         .sort((a, b) => a.localeCompare(b, currentLang))
       filterOptions.replaceChildren()
-      values.forEach((value) => {
+      // Keep these arrays in deliberate importance/similarity order.
+      const categories = [
+        { key: 'software', pt: 'Softwares e ferramentas', en: 'Software & tools', values: ['unity', 'hugo'] },
+        { key: 'languages', pt: 'Linguagens e formatos', en: 'Languages & formats', values: ['python', 'c#', 'c++', 'rust', 'markdown'] },
+        { key: 'frameworks', pt: 'Frameworks e bibliotecas', en: 'Frameworks & libraries', values: ['pytorch', 'react'] },
+        { key: 'concepts', pt: 'Conceitos e técnicas', en: 'Concepts & techniques', values: ['large language models', 'reinforcement learning', 'gaussian splatting'] }
+      ]
+      const renderOption = (value, parent) => {
         const selected = filterValues.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())
         const option = document.createElement('button')
         option.type = 'button'
@@ -218,10 +225,13 @@
             const image = document.createElement('img')
             image.src = icon === 'markdown-mark'
               ? 'https://raw.githubusercontent.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg'
-              : `https://cdn.simpleicons.org/${icon}/000000`
+              : icon === 'csharp'
+                ? 'https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-plain.svg'
+                : `https://cdn.simpleicons.org/${icon}/000000`
             image.alt = ''
             image.setAttribute('aria-hidden', 'true')
             image.loading = 'lazy'
+            if (icon === 'csharp') image.classList.add('stack-icon--monochrome')
             option.append(image)
           }
         }
@@ -244,8 +254,44 @@
           renderListing()
         })
         option.dataset.filterValue = value
-        filterOptions.append(option)
-      })
+        parent.append(option)
+      }
+      if (section === 'projects') {
+        categories.forEach((category) => {
+          const members = category.values
+            .map((name) => values.find((value) => value.toLocaleLowerCase() === name))
+            .filter(Boolean)
+          if (!members.length) return
+          const group = document.createElement('section')
+          group.className = 'content-listing__filter-group'
+          const title = document.createElement('h3')
+          title.className = 'content-listing__filter-group-title'
+          title.textContent = currentLang === 'en' ? category.en : category.pt
+          group.append(title)
+          const options = document.createElement('div')
+          options.className = 'content-listing__filter-group-options'
+          members.forEach((value) => renderOption(value, options))
+          group.append(options)
+          filterOptions.append(group)
+        })
+        const known = new Set(categories.flatMap((category) => category.values))
+        const otherValues = values.filter((value) => !known.has(value.toLocaleLowerCase()))
+        if (otherValues.length) {
+          const group = document.createElement('section')
+          group.className = 'content-listing__filter-group'
+          const title = document.createElement('h3')
+          title.className = 'content-listing__filter-group-title'
+          title.textContent = currentLang === 'en' ? 'Other' : 'Outros'
+          group.append(title)
+          const options = document.createElement('div')
+          options.className = 'content-listing__filter-group-options'
+          otherValues.forEach((value) => renderOption(value, options))
+          group.append(options)
+          filterOptions.append(group)
+        }
+      } else {
+        values.forEach((value) => renderOption(value, filterOptions))
+      }
     }
 
     const updateCount = (count) => {

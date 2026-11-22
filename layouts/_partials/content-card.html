@@ -28,6 +28,7 @@
         {{ if or (eq $label "html") (eq $label "html5") }}{{ $icon = "html5" }}
         {{ else if or (eq $label "css") (eq $label "css3") }}{{ $icon = "css3" }}
         {{ else if or (eq $label "javascript") (eq $label "js") }}{{ $icon = "javascript" }}
+        {{ else if eq $label "c#" }}{{ $icon = "csharp" }}
         {{ else if eq $label "pytorch" }}{{ $icon = "pytorch" }}
         {{ else if eq $label "unity" }}{{ $icon = "unity" }}
         {{ else if eq $label "python" }}{{ $icon = "python" }}
@@ -36,7 +37,7 @@
         {{ else if eq $label "hugo" }}{{ $icon = "hugo" }}
         {{ else if eq $label "markdown" }}{{ $icon = "markdown-mark" }}{{ end }}
       {{ end }}
-      <span class="content-card__tag-chip{{ if $project }} content-card__stack-item{{ end }}">{{ if $icon }}<img src="{{ partial "technology-icon-url.html" $icon | strings.TrimSpace }}" alt="" aria-hidden="true" loading="lazy">{{ end }}{{ if not $project }}#{{ end }}{{ . }}</span>
+      <span class="content-card__tag-chip{{ if $project }} content-card__stack-item{{ end }}">{{ if $icon }}<img{{ if and $project (eq $icon "csharp") }} class="stack-icon--monochrome"{{ end }} src="{{ partial "technology-icon-url.html" $icon | strings.TrimSpace }}" alt="" aria-hidden="true" loading="lazy">{{ end }}{{ if not $project }}#{{ end }}{{ . }}</span>
     {{ end }}</div>{{ end }}
     {{ if not $project }}<div class="content-card__meta"><time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ if $en }}{{ index $monthsEn (sub $month 1) }} {{ $page.Date.Format "2, 2006" }}{{ else }}{{ $page.Date.Format "2" }} de {{ index $monthsPt (sub $month 1) }}, {{ $page.Date.Format "2006" }}{{ end }}</time><span class="content-card__meta-separator" aria-hidden="true">·</span><span>{{ if $en }}{{ $page.ReadingTime }} min read{{ else }}{{ $page.ReadingTime }} min de leitura{{ end }}</span></div>{{ end }}
       </div>

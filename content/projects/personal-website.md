@@ -14,4 +14,4 @@ Veja, eu não sei nada de HTML, JavaScript e muito menos CSS — esta última eu
 
 Depois de umas cinco tentativas entre os vários jeitos e versões possíveis de baixar o Hugo, eu finalmente consegui; e o resto foi bem tranquilo: eu sigo sem saber nada de HTML, JavaScript e muito menos CSS — para o bem ou para o mal — enquanto meu site funciona (quase) perfeitamente. A única coisa que realmente tive que fazer foi baixar um tema chamado [Lumenveil](https://github.com/Hansen1018/hugo-theme-lumenveil) e dar prompts no Codex até ele ficar do meu jeito. Por isso eu só coloquei &#34;Markdown&#34; e &#34;Hugo&#34; como *stacks* relacionadas a este projeto, o resto eu nunca precisei aprender de fato.
 
-<img src="/RipperBlog/images/no-thanks-i-use-ai.png" alt="Meme com a frase ‘No thanks I use AI’, mostrando um homem recusando um cérebro." style="display:block;width:min(100%,420px);height:auto;margin-inline:auto">
+<img src="/RipperBlog/images/personal-website/no-thanks-i-use-ai.png" alt="Meme com a frase ‘No thanks I use AI’, mostrando um homem recusando um cérebro." style="display:block;width:min(100%,420px);height:auto;margin-inline:auto">
